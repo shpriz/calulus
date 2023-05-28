@@ -13,7 +13,7 @@ export const useDrugStore = defineStore('drugStore', {
             agePerson: 0, 
             agemonthPerson: 0,
             selectedDrugId:0,
-            drugs: [0],
+            drugs: [],
             dosePerKG:[],
             dose:['неприменимо'], 
             maximized: false,
@@ -128,7 +128,7 @@ export const useDrugStore = defineStore('drugStore', {
                     let w = 0
                 
 
-                    dose.push(0)
+                    
 
                     state.counts = 1
 
