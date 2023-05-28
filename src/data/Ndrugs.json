@@ -1,0 +1,338 @@
+[
+    {
+        "id": 0,
+        "original_title": "Изониазид",
+        "daily_dose_per_kg": [5, 10, 15],
+        "max_daily_dose": 600,
+        "inputs_per_day": 1, 
+        "way_takining_grug": 
+        [
+          "внутрь",
+          "внутривенно",
+          "внутримышечно",
+          "внутрикавернозно",
+          "ингаляционно"
+        ],
+        "is_for_3_year_child": false,
+        "is_information": false,
+        "is_comission" : false,
+        "is_VK": 0
+      },
+
+      {
+        "id": 1,
+        "original_title": "Рифампицин",
+        "daily_dose_per_kg": [10, 15],
+        "max_daily_dose": 600,
+        "inputs_per_day": 1, 
+        "way_takining_grug":[
+            "внутрь",
+            "внутривенно"
+          ],
+        "is_for_3_year_child": false,
+        "is_information": false,
+        "is_comission" : false,
+        "is_VK": 0
+      },
+      {
+        "id": 2,
+        "original_title": "Пиразинамин",
+        "daily_dose_per_kg": [20, 40],
+        "max_daily_dose": 1500,
+        "inputs_per_day": 1, 
+        "way_takining_grug": [
+          "внутрь"
+        ],
+        "is_for_3_year_child": false,
+        "is_information": false,
+        "is_comission" : false,
+        "is_VK": 0
+      },
+      {
+        "id": 0,
+        "original_title": "Изониазид",
+        "daily_dose_per_kg": [5, 10, 15],
+        "max_daily_dose": 600,
+        "inputs_per_day": 1, 
+        "way_takining_grug": 
+        [
+          "внутрь",
+          "внутривенно",
+          "внутримышечно",
+          "внутрикавернозно",
+          "ингаляционно"
+        ],
+        "is_for_3_year_child": false,
+        "is_information": false,
+        "is_comission" : false,
+        "is_VK": 0
+      },
+      {
+        "id": 0,
+        "original_title": "Изониазид",
+        "daily_dose_per_kg": [5, 10, 15],
+        "max_daily_dose": 600,
+        "inputs_per_day": 1, 
+        "way_takining_grug": 
+        [
+          "внутрь",
+          "внутривенно",
+          "внутримышечно",
+          "внутрикавернозно",
+          "ингаляционно"
+        ],
+        "is_for_3_year_child": false,
+        "is_information": false,
+        "is_comission" : false,
+        "is_VK": 0
+      },
+      {
+        "id": 0,
+        "original_title": "Изониазид",
+        "daily_dose_per_kg": [5, 10, 15],
+        "max_daily_dose": 600,
+        "inputs_per_day": 1, 
+        "way_takining_grug": 
+        [
+          "внутрь",
+          "внутривенно",
+          "внутримышечно",
+          "внутрикавернозно",
+          "ингаляционно"
+        ],
+        "is_for_3_year_child": false,
+        "is_information": false,
+        "is_comission" : false,
+        "is_VK": 0
+      },
+      {
+        "id": 0,
+        "original_title": "Изониазид",
+        "daily_dose_per_kg": [5, 10, 15],
+        "max_daily_dose": 600,
+        "inputs_per_day": 1, 
+        "way_takining_grug": 
+        [
+          "внутрь",
+          "внутривенно",
+          "внутримышечно",
+          "внутрикавернозно",
+          "ингаляционно"
+        ],
+        "is_for_3_year_child": false,
+        "is_information": false,
+        "is_comission" : false,
+        "is_VK": 0
+      },
+      {
+        "id": 0,
+        "original_title": "Изониазид",
+        "daily_dose_per_kg": [5, 10, 15],
+        "max_daily_dose": 600,
+        "inputs_per_day": 1, 
+        "way_takining_grug": 
+        [
+          "внутрь",
+          "внутривенно",
+          "внутримышечно",
+          "внутрикавернозно",
+          "ингаляционно"
+        ],
+        "is_for_3_year_child": false,
+        "is_information": false,
+        "is_comission" : false,
+        "is_VK": 0
+      },
+      {
+        "id": 0,
+        "original_title": "Изониазид",
+        "daily_dose_per_kg": [5, 10, 15],
+        "max_daily_dose": 600,
+        "inputs_per_day": 1, 
+        "way_takining_grug": 
+        [
+          "внутрь",
+          "внутривенно",
+          "внутримышечно",
+          "внутрикавернозно",
+          "ингаляционно"
+        ],
+        "is_for_3_year_child": false,
+        "is_information": false,
+        "is_comission" : false,
+        "is_VK": 0
+      },
+      {
+        "id": 0,
+        "original_title": "Изониазид",
+        "daily_dose_per_kg": [5, 10, 15],
+        "max_daily_dose": 600,
+        "inputs_per_day": 1, 
+        "way_takining_grug": 
+        [
+          "внутрь",
+          "внутривенно",
+          "внутримышечно",
+          "внутрикавернозно",
+          "ингаляционно"
+        ],
+        "is_for_3_year_child": false,
+        "is_information": false,
+        "is_comission" : false,
+        "is_VK": 0
+      },
+      {
+        "id": 0,
+        "original_title": "Изониазид",
+        "daily_dose_per_kg": [5, 10, 15],
+        "max_daily_dose": 600,
+        "inputs_per_day": 1, 
+        "way_takining_grug": 
+        [
+          "внутрь",
+          "внутривенно",
+          "внутримышечно",
+          "внутрикавернозно",
+          "ингаляционно"
+        ],
+        "is_for_3_year_child": false,
+        "is_information": false,
+        "is_comission" : false,
+        "is_VK": 0
+      },
+      {
+        "id": 0,
+        "original_title": "Изониазид",
+        "daily_dose_per_kg": [5, 10, 15],
+        "max_daily_dose": 600,
+        "inputs_per_day": 1, 
+        "way_takining_grug": 
+        [
+          "внутрь",
+          "внутривенно",
+          "внутримышечно",
+          "внутрикавернозно",
+          "ингаляционно"
+        ],
+        "is_for_3_year_child": false,
+        "is_information": false,
+        "is_comission" : false,
+        "is_VK": 0
+      },
+      {
+        "id": 0,
+        "original_title": "Изониазид",
+        "daily_dose_per_kg": [5, 10, 15],
+        "max_daily_dose": 600,
+        "inputs_per_day": 1, 
+        "way_takining_grug": 
+        [
+          "внутрь",
+          "внутривенно",
+          "внутримышечно",
+          "внутрикавернозно",
+          "ингаляционно"
+        ],
+        "is_for_3_year_child": false,
+        "is_information": false,
+        "is_comission" : false,
+        "is_VK": 0
+      },
+      {
+        "id": 0,
+        "original_title": "Изониазид",
+        "daily_dose_per_kg": [5, 10, 15],
+        "max_daily_dose": 600,
+        "inputs_per_day": 1, 
+        "way_takining_grug": 
+        [
+          "внутрь",
+          "внутривенно",
+          "внутримышечно",
+          "внутрикавернозно",
+          "ингаляционно"
+        ],
+        "is_for_3_year_child": false,
+        "is_information": false,
+        "is_comission" : false,
+        "is_VK": 0
+      },
+      {
+        "id": 0,
+        "original_title": "Изониазид",
+        "daily_dose_per_kg": [5, 10, 15],
+        "max_daily_dose": 600,
+        "inputs_per_day": 1, 
+        "way_takining_grug": 
+        [
+          "внутрь",
+          "внутривенно",
+          "внутримышечно",
+          "внутрикавернозно",
+          "ингаляционно"
+        ],
+        "is_for_3_year_child": false,
+        "is_information": false,
+        "is_comission" : false,
+        "is_VK": 0
+      },
+      {
+        "id": 0,
+        "original_title": "Изониазид",
+        "daily_dose_per_kg": [5, 10, 15],
+        "max_daily_dose": 600,
+        "inputs_per_day": 1, 
+        "way_takining_grug": 
+        [
+          "внутрь",
+          "внутривенно",
+          "внутримышечно",
+          "внутрикавернозно",
+          "ингаляционно"
+        ],
+        "is_for_3_year_child": false,
+        "is_information": false,
+        "is_comission" : false,
+        "is_VK": 0
+      },
+      {
+        "id": 0,
+        "original_title": "Изониазид",
+        "daily_dose_per_kg": [5, 10, 15],
+        "max_daily_dose": 600,
+        "inputs_per_day": 1, 
+        "way_takining_grug": 
+        [
+          "внутрь",
+          "внутривенно",
+          "внутримышечно",
+          "внутрикавернозно",
+          "ингаляционно"
+        ],
+        "is_for_3_year_child": false,
+        "is_information": false,
+        "is_comission" : false,
+        "is_VK": 0
+      },
+      {
+        "id": 0,
+        "original_title": "Изониазид",
+        "daily_dose_per_kg": [5, 10, 15],
+        "max_daily_dose": 600,
+        "inputs_per_day": 1, 
+        "way_takining_grug": 
+        [
+          "внутрь",
+          "внутривенно",
+          "внутримышечно",
+          "внутрикавернозно",
+          "ингаляционно"
+        ],
+        "is_for_3_year_child": false,
+        "is_information": false,
+        "is_comission" : false,
+        "is_VK": 0
+      }
+
+
+]

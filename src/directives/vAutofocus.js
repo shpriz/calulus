@@ -1,0 +1,7 @@
+/** @format */
+
+export const vAutofocus = {
+  mounted: (el) => {
+    el.focus();
+  },
+};
