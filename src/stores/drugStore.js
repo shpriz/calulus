@@ -1,8 +1,7 @@
 import { defineStore } from "pinia";
 
 function _calcDose (age, weight ) {
-        
-    return []
+    return [age * weight ]
 }
 
 
@@ -14,7 +13,7 @@ export const useDrugStore = defineStore('drugStore', {
             agePerson: 0, 
             agemonthPerson: 0,
             selectedDrugId:0,
-            drugs: [],
+            drugs: [0],
             dosePerKG:[],
             dose:['неприменимо'], 
             maximized: false,
@@ -128,268 +127,95 @@ export const useDrugStore = defineStore('drugStore', {
                     state.maximized = false
                     let w = 0
                 
-                    //dose.push('Неприменимо')
+
+                    dose.push(0)
 
                     state.counts = 1
 
-                    if ( age <= 1 & monthage <= 6 ){ 
-                        dose.length = 0
-                        for (let i = 0; i < perkg.length; i++){
-                            if (weight*perkg[i] < maxDoseBefore14.m3[i] ) {
-                                state.maximized = false
-                                let w =  weight*perkg[i]
-                                if (w !== 0 | w !== null){
-                                    dose.push(w)
-                                }
-                               
-                            }
-                                
-                            else {
-                                state.maximized = true
-                                dose.push(maxDoseBefore14.m3[i])
-                            }
-                        }
-                    
-                    }
-                        if ( age <= 1 & (monthage > 6 & monthage <= 11 )){  
-                            dose.length = 0
-                            for (let i = 0; i < perkg.length; i++){
-                                if (weight*perkg[i] < maxDoseBefore14.m6[i] ) {
-                                    state.maximized = false
-                                    let w =  weight*perkg[i]
-                                    if (w !== 0 | w !== null){
-                                        dose.push(w)
-                            
-                                    
-                                }
-                                    
-                                else {
-                                    state.maximized = true
-                                    dose.push(maxDoseBefore14.m6[i])
-                                }
-                    
-                            }
-                        }
-                    }
-                    if ( age > 1 & age < 2){ 
-                        for (let i = 0; i < perkg.length; i++){
-                            dose.length = 0
-                            if (weight*perkg[i] < maxDoseBefore14.y2[i] ) {
-                                state.maximized = false
-                                let w =  weight*perkg[i]
-                                if (w !== 0 | w !== null){
-                                    dose.push(w)
-                                }
-                            }
-                                
-                            else {
-                                state.maximized = true
-                                dose.push(maxDoseBefore14.y2[i])
-                            }
-                        }
-                      }
+                    switch(index){
+                        case 1:
+                        case 2:
+                        case 5:
+                        case 6:
+                        case 7:
+                        case 8:
+                        case 9:
+                        case 11:
+                        case 13:
+                        case 14:
+                        case 15:
+                        case 16:
+                        case 18:
+                        case 19:
+                        case 20:
+                        case 21:
+                            if (age < 1) {
+                                if (monthage < 3){
+                                    for (let i = 0; i < maxDoseBefore14.m3.length; i++){
+                                        w = weight * perkg[i]
+                                        if (w < maxDoseBefore14.m3.max ) {
+                                            state.maximized = false
+                                            dose.push(w) 
+                                        }
+                                        else {
+                                            state.maximized = true
+                                            dose.push(maxDoseBefore14.m3[i])
+                                        }
 
-                    if ( age >= 2 & age < 4){ 
-                        dose.length = 0
-                        for (let i = 0; i < perkg.length; i++){
-                            if (weight*perkg[i] < maxDoseBefore14.y4[i] ) {
-                                state.maximized = false
-                                let w =  weight*perkg[i]
-                                if (w !== 0 | w !== null){
-                                    dose.push(w)
-                                }
-                            
-                            }
-                                
-                            else {
-                                state.maximized = true
-                                dose.push(maxDoseBefore14.y4[i])
-                            }
-                        }
-                      }
-                   
-                      if ( age >= 4  & age < 6){ 
-                        dose.length = 0
-                        for (let i = 0; i < perkg.length; i++){
-                            if (weight*perkg[i] < maxDoseBefore14.y6[i] ) {
-                                state.maximized = false
-                                let w =  weight*perkg[i]
-                                if (w !== 0 | w !== null){
-                                    dose.push(w)
-                                }
-                            }
-                                
-                            else {
-                                state.maximized = true
-                                dose.push(maxDoseBefore14.y6[i])
-                            }
-                        }
-                      }
-
-                      if ( age >= 6  & age < 9){ 
-                        dose.length = 0
-                        for (let i = 0; i < perkg.length; i++){
-                            if (weight*perkg[i] < maxDoseBefore14.y9[i] ) {
-                                state.maximized = false
-                                let w =  weight*perkg[i]
-                                if (w !== 0 | w !== null){
-                                    dose.push(w)
-                                }   
-                            }
-                                
-                            else {
-                                state.maximized = true
-                                dose.push(maxDoseBefore14.y9[i])
-                            }
-                        }
-                      }
-
-                      if ( age >= 9  & age < 14){ 
-                        dose.length = 0
-                        for (let i = 0; i < perkg.length; i++){
-                            if (weight*perkg[i] < maxDoseBefore14.y14[i] ) {
-                                state.maximized = false
-                                let w =  weight*perkg[i]
-                                if (w !== 0 | w !== null){
-                                    dose.push(w)
-                                }
-                            }
-                                
-                            else {
-                                state.maximized = true
-                                dose.push(maxDoseBefore14.y14[i])
-                            }
-                        }
-                      }
-                        
-                    if (index === 5 ) {
-                        state.counts = 1
-                        dose.length = 0
-                        if (age === 0 & monthage <= 11 ) {
-                            if (monthage < 3 ) {
-                                dose.push(maxDoseBefore14.m3)
-                                state.maximized = true
-
-                                }     
-                            
-                            if (monthage >= 3 & monthage < 6 ){
-                                dose.push(maxDoseBefore14.m6)
-                                state.maximized = true
-
-                            }
-
-                            if (monthage >= 6 & monthage <=11) {
-                                dose.push(maxDoseBefore14.y2)
-                                state.maximized = true
-                            }
-
-                        }
-                        else {
-                        state.maximized = false
-
-                        if (age < 2) {
-                            dose.push(maxDoseBefore14.y2[0])
-                            state.maximized = true
-                        }
-                        else {
-
-                            if (age >= 2 & age < 3) {
-                                for (let i = 0; i < perkg.length; i++){
-                                    w =  weight * perkg[i]
-                                    
-                                    if ( w > maxDoseBefore14.y2[0]){
-                                        state.maximized = true
-                                        dose.push(maxDoseBefore14.y2[0])
                                     }
-                                    else {
-                                        state.maximized = false
-                                        let w =  weight*perkg[i]
-                                        if (w !== 0 | w !== null){
+                                }
+                                else {
+                                    if (monthage >= 3 & monthage < 6) {
+                                        for (let i = 0; i < maxDoseBefore14.m6.length; i++){
+                                            w = weight * perkg[i]
+                                            if (w < maxDoseBefore14.m6[i] ) {
+                                                state.maximized = false
+                                                dose.push(w)
+                                                } 
+                                            else {
+                                                state.maximized = true
+                                                dose.push(maxDoseBefore14.m6[i])
+                                            }
+                                        }
+
+                                    }
+                                }
+                            } // end age < 1
+
+
+
+                            else {
+
+                                if (monthage > 6 & age < 2){
+                                    
+                                    for (let i = 0; i < maxDoseBefore14.y2.length; i++){
+                                        w = weight * perkg[i]
+                                        if (w < maxDoseBefore14.y2[i]) {
+                                            state.maximized = false
                                             dose.push(w)
+                                            } 
+                                        else {
+                                            state.maximized = true
+                                            dose.push(maxDoseBefore14.y2[i])
                                         }
                                     }
                                 }
                             }
-                        }
-
-                        if (age >= 3 & age <= 4) {
-                            state.maximized = false
-                            dose.length = 0
-                            for (let i = 0; i < perkg.length; i++){
-                                w =  weight * perkg[i]
-                                
-                                if ( w > maxDoseBefore14.y4[0]){
-                                    state.maximized = true
-                                    dose.push(maxDoseBefore14.y4[0])
-                                }
-                                else {
-                                    state.maximized = false
-                                    dose.push(w)
-                                }
-                            }
-
-                        }
-
-                        if (age > 4 & age <= 6) {
-                            state.maximized = false
-                            dose.length = 0
-                            for (let i = 0; i < perkg.length; i++){
-                                w =  weight * perkg[i]
-                                
-                                if ( w > maxDoseBefore14.y6[0]){
-                                    state.maximized = true
-                                    dose.push(maxDoseBefore14.y6[0])
-                                }
-                                else {
-                                    state.maximized = false
-                                    dose.push(w)
-                                }
-                            }
-                        }
-
-                        if (age >= 7 & age < 9) {
-                            state.maximized = false
-                            dose.length = 0
-                            for (let i = 0; i < perkg.length; i++){
-                                w =  weight * perkg[i]
-                                
-                                if ( w > maxDoseBefore14.y9[0]){
-                                    state.maximized = true
-                                    dose.push(maxDoseBefore14.y9[0])
-                                }
-                                else {
-                                    state.maximized = false
-                                    dose.push(w)
-                                }
-                            }
-                        }
-
-                        if (age >= 9 & age <= 14) {
-                            state.maximized = false
-                            dose.length = 0
-                            for (let i = 0; i < perkg.length; i++){
-                                w =  weight * perkg[i]
-                                
-                                if ( w > maxDoseBefore14.y14[0]){
-                                    state.maximized = true
-                                    dose.push(maxDoseBefore14.y14[0])
-                                }
-                                else {
-                                    state.maximized = false
-                                    dose.push(w)
-                                }
-                            }
-                        }
 
 
+                            
+                        break;
+                        
+                       
+            
 
-
-                        }
-                    }
-
-                    if (index === 3 | index === 4 | index === 10 | index === 12 | index === 13 | index === 17 ) {
+                        case 3:
+                        case 4:
+                        case 10:
+                        case 12:
+                        case 17:
+                        
                         state.counts = 1
-                        dose.length = 0
                         if (weight <= 6){
                             for (let i = 0; i < maxbyMass.kg6.max.length; i++){
                                 w = weight * perkg[i]
@@ -405,8 +231,7 @@ export const useDrugStore = defineStore('drugStore', {
                                
                             }
                         } 
-    
-       
+
                         if (weight > 6 & weight <= 9) {
                             for (let i = 0; i < maxbyMass.kg9.max.length; i++){
                                 w = weight * perkg[i]
@@ -485,7 +310,271 @@ export const useDrugStore = defineStore('drugStore', {
                                
                             }
                         }
+
+                        break;
+
+                        default:
+                            
+                                dose.push(0)
+                            break;
+                        // default:
+                        //     for (let i = 0; i < perkg.length; i++){
+                        //         if (weight*perkg[i] < maxDoseAfter14[0] ) {
+                        //             state.maximized = false
+                        //             let w =  weight*perkg[i]
+                        //             if (w !== 0 | w !== null){
+                        //                 dose.length = 0
+                        //                 dose.push(w)
+                        //             }
+                                       
+                        //         }
+                                    
+                        //         else {
+                        //             state.maximized = true
+                        //             dose.length = 0
+                        //             dose.push(maxDoseAfter14[0])
+                        //         }
+
+                        // break
                     }
+
+
+                        
+                    // if (index === 5 ) {
+                    //     state.counts = 1
+
+                    //     if (age === 0 & monthage <= 11 ) {
+                    //         for (let i = 0; i < perkg.length; i++){
+                    //             w =  weight * perkg[i]
+                                
+                    //             if ( w > maxDoseBefore14.m3[0]){
+                    //                 state.maximized = true
+                    //                 dose.push(maxDoseBefore14.m3[0])
+                    //             }
+                    //             else {
+                    //                 state.maximized = false
+                    //                 if (w !== 0 | w !== null){
+                    //                     dose.push(w)
+                    //                 }
+                    //             }
+                    //         }
+
+
+                    //         if (monthage < 3 ) {
+                    //             dose.push(maxDoseBefore14.m3)
+                    //             state.maximized = true
+
+                    //             }     
+                            
+                    //         if (monthage >= 3 & monthage < 6 ){
+                    //             dose.push(maxDoseBefore14.m6)
+                    //             state.maximized = true
+
+                    //         }
+
+                    //         if (monthage >= 6 & monthage <=11) {
+                    //             dose.push(maxDoseBefore14.y2)
+                    //             state.maximized = true
+                    //         }
+
+                    //     }
+                    //     else {
+                    //     state.maximized = false
+
+                    //     if (age < 2) {
+                    //         dose.push(maxDoseBefore14.y2[0])
+                    //         state.maximized = true
+                    //     }
+                    //     else {
+
+                    //         if (age >= 2 & age < 3) {
+                    //             for (let i = 0; i < perkg.length; i++){
+                    //                 w =  weight * perkg[i]
+                                    
+                    //                 if ( w > maxDoseBefore14.y2[0]){
+                    //                     state.maximized = true
+                    //                     dose.push(maxDoseBefore14.y2[0])
+                    //                 }
+                    //                 else {
+                    //                     state.maximized = false
+                    //                     let w =  weight*perkg[i]
+                    //                     if (w !== 0 | w !== null){
+                    //                         dose.push(w)
+                    //                     }
+                    //                 }
+                    //             }
+                    //         }
+                    //     }
+
+                    //     if (age >= 3 & age <= 4) {
+                    //         state.maximized = false
+                    //         for (let i = 0; i < perkg.length; i++){
+                    //             w =  weight * perkg[i]
+                                
+                    //             if ( w > maxDoseBefore14.y4[0]){
+                    //                 state.maximized = true
+                    //                 dose.push(maxDoseBefore14.y4[0])
+                    //             }
+                    //             else {
+                    //                 state.maximized = false
+                    //                 dose.push(w)
+                    //             }
+                    //         }
+
+                    //     }
+
+                    //     if (age > 4 & age <= 6) {
+                    //         state.maximized = false
+                    //         for (let i = 0; i < perkg.length; i++){
+                    //             w =  weight * perkg[i]
+                                
+                    //             if ( w > maxDoseBefore14.y6[0]){
+                    //                 state.maximized = true
+                    //                 dose.push(maxDoseBefore14.y6[0])
+                    //             }
+                    //             else {
+                    //                 state.maximized = false
+                    //                 dose.push(w)
+                    //             }
+                    //         }
+                    //     }
+
+                    //     if (age >= 7 & age < 9) {
+                    //         state.maximized = false
+                    //         for (let i = 0; i < perkg.length; i++){
+                    //             w =  weight * perkg[i]
+                                
+                    //             if ( w > maxDoseBefore14.y9[0]){
+                    //                 state.maximized = true
+                    //                 dose.push(maxDoseBefore14.y9[0])
+                    //             }
+                    //             else {
+                    //                 state.maximized = false
+                    //                 dose.push(w)
+                    //             }
+                    //         }
+                    //     }
+
+                    //     if (age >= 9 & age <= 14) {
+                    //         state.maximized = false
+                    //         for (let i = 0; i < perkg.length; i++){
+                    //             w =  weight * perkg[i]
+                                
+                    //             if ( w > maxDoseBefore14.y14[0]){
+                    //                 state.maximized = true
+                    //                 dose.push(maxDoseBefore14.y14[0])
+                    //             }
+                    //             else {
+                    //                 state.maximized = false
+                    //                 dose.push(w)
+                    //             }
+                    //         }
+                    //     }
+
+
+
+
+                    //     }
+                     //}
+
+                  //  if (index === 3 | index === 4 | index === 5 | index === 10 | index === 12 | index === 13 | index === 17 ) {
+                        // state.counts = 1
+                        // if (weight <= 6){
+                        //     for (let i = 0; i < maxbyMass.kg6.max.length; i++){
+                        //         w = weight * perkg[i]
+                               
+                        //         if ( w < maxbyMass.kg6.max[i]) {
+                        //             state.maximized = false
+                        //             dose.push(w)
+                        //         }
+                        //         else {
+                        //             state.maximized = true
+                        //             dose.push(maxbyMass.kg6.max[i])
+                        //         }
+                               
+                        //     }
+                        // } 
+    
+       
+                        // if (weight > 6 & weight <= 9) {
+                        //     for (let i = 0; i < maxbyMass.kg9.max.length; i++){
+                        //         w = weight * perkg[i]
+                            
+                        //         if ( w < maxbyMass.kg9.max[i]) {
+                        //             state.maximized = false
+                        //             dose.push(w)
+                        //         }
+                        //         else {
+                        //             state.maximized = true
+                        //             dose.push(maxbyMass.kg9.max[i])
+                        //         }
+                            
+                        //     }
+                        // }
+                        
+                        // if (weight > 9 & weight <= 15) {
+                        //     for (let i = 0; i < maxbyMass.kg15.max.length; i++){
+                        //         w = weight * perkg[i]
+                               
+                        //         if ( w < maxbyMass.kg15.max[i]) {
+                        //             state.maximized = false
+                        //             dose.push(w)
+                        //         }
+                        //         else {
+                        //             state.maximized = true
+                        //             dose.push(maxbyMass.kg15.max[i])
+                        //         }
+                               
+                        //     }
+                        // }
+
+
+                        // if (weight > 15 & weight <= 23) { 
+                        //     for (let i = 0; i < maxbyMass.kg23.max.length; i++){
+                        //         w = weight * perkg[i]
+                               
+                        //         if ( w < maxbyMass.kg23.max[i]) {
+                        //             state.maximized = false
+                        //             dose.push(w)
+                        //         }
+                        //         else {
+                        //             state.maximized = true
+                        //             dose.push(maxbyMass.kg23.max[i])
+                        //         }
+                               
+                        //     }
+                        // }
+                        // if (weight > 23 & weight <= 30) {
+                        //     for (let i = 0; i < maxbyMass.kg30.max.length; i++){
+                        //         w = weight * perkg[i]
+                               
+                        //         if ( w < maxbyMass.kg30.max[i]) {
+                        //             state.maximized = false
+                        //             dose.push(w)
+                        //         }
+                        //         else {
+                        //             state.maximized = true
+                        //             dose.push(maxbyMass.kg30.max[i])
+                        //         }
+                               
+                        //     }
+                        // }
+                        // if (weight > 30 & weight <= 34) {
+                        //     for (let i = 0; i < maxbyMass.kg34.max.length; i++){
+                        //         w = weight * perkg[i]
+                               
+                        //         if ( w < maxbyMass.kg34.max[i]) {
+                        //             state.maximized = false
+                        //             dose.push(w)
+                        //         }
+                        //         else {
+                        //             state.maximized = true
+                        //             dose.push(maxbyMass.kg34.max[i])
+                        //         }
+                               
+                        //     }
+                        // }
+                    //}
 
                     if (index === 14) {
                         
@@ -518,6 +607,11 @@ export const useDrugStore = defineStore('drugStore', {
                     if (index === 19 ) {
                         state.counts = 'применяетс я только с амоксициллин + клавуланововая кислота ' + 3 + ' '
                     }
+
+
+
+                    
+
                     // if (index === 19) {
                     //     state.counts = 'применяетс я только с амоксициллин + клавуланововая кислота ' + 3
                     // }
