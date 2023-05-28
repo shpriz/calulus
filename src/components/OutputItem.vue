@@ -63,9 +63,9 @@
   
   
   
-  {{ store.agePerson }} - 
+  <!-- {{ store.agePerson }} - 
         {{ store.getDose }} - <br>
-        {{ store.getDrugById(store.selectedDrugId) }} - <br>
+        {{ store.getDrugById(store.selectedDrugId) }} - <br> -->
 </div>
 </template>
 

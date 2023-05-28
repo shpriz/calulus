@@ -200,6 +200,68 @@ export const useDrugStore = defineStore('drugStore', {
                                         }
                                     }
                                 }
+
+                                if (monthage >= 2 & age < 4){
+                                    
+                                    for (let i = 0; i < maxDoseBefore14.y4.length; i++){
+                                        w = weight * perkg[i]
+                                        if (w < maxDoseBefore14.y4[i]) {
+                                            state.maximized = false
+                                            dose.push(w)
+                                            } 
+                                        else {
+                                            state.maximized = true
+                                            dose.push(maxDoseBefore14.y4[i])
+                                        }
+                                    }
+                                }
+
+                                if (monthage >= 4 & age < 6){
+                                    
+                                    for (let i = 0; i < maxDoseBefore14.y6.length; i++){
+                                        w = weight * perkg[i]
+                                        if (w < maxDoseBefore14.y6[i]) {
+                                            state.maximized = false
+                                            dose.push(w)
+                                            } 
+                                        else {
+                                            state.maximized = true
+                                            dose.push(maxDoseBefore16.y6[i])
+                                        }
+                                    }
+                                }
+
+
+                                if (monthage >= 6 & age < 9){
+                                    
+                                    for (let i = 0; i < maxDoseBefore14.y9.length; i++){
+                                        w = weight * perkg[i]
+                                        if (w < maxDoseBefore14.y9[i]) {
+                                            state.maximized = false
+                                            dose.push(w)
+                                            } 
+                                        else {
+                                            state.maximized = true
+                                            dose.push(maxDoseBefore16.y9[i])
+                                        }
+                                    }
+                                }
+
+                                if (monthage >= 9 & age <= 14){
+                                    
+                                    for (let i = 0; i < maxDoseBefore14.y14.length; i++){
+                                        w = weight * perkg[i]
+                                        if (w < maxDoseBefore14.y14[i]) {
+                                            state.maximized = false
+                                            dose.push(w)
+                                            } 
+                                        else {
+                                            state.maximized = true
+                                            dose.push(maxDoseBefore16.y14[i])
+                                        }
+                                    }
+                                }
+
                             }
 
 
