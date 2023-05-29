@@ -1,8 +1,8 @@
 import { defineStore } from "pinia";
 
-function _calcDose (age, weight ) {
-    return [age * weight ]
-}
+// function _calcDose (age, weight ) {
+//     return [age * weight ]
+// }
 
 
 
@@ -55,7 +55,7 @@ export const useDrugStore = defineStore('drugStore', {
             let dose = []
             let perkg = []
           
-            if  ((age !== 0 | monthage !== 0) & weight !== 0 & index !== 0) {
+            if  ((age !== 0 | monthage !== 0) & weight !== 0 && index !== 0) {
                 state.counts = 1
 
 
@@ -64,14 +64,14 @@ export const useDrugStore = defineStore('drugStore', {
 
                 
 
-                if (age > 14 | (weight >= 35 & age < 14) ) {  // Расчет дозы препарата для лиц старше 14 лет
+                if (age > 14 || (weight >= 35 && age < 14) ) {  // Расчет дозы препарата для лиц старше 14 лет
                     state.counts = 1
 
                     for (let i = 0; i < perkg.length; i++){
                         if (weight*perkg[i] < maxDoseAfter14[0] ) {
                             state.maximized = false
                             let w =  weight*perkg[i]
-                            if (w !== 0 | w !== null){
+                            if (w !== 0 || w !== null){
                                 dose.length = 0
                                 dose.push(w)
                             }
@@ -86,7 +86,7 @@ export const useDrugStore = defineStore('drugStore', {
 
                     }
 
-                    if (index === 13 & age > 14) {
+                    if (index === 13 && age > 14) {
                         if (weight <= 60) { state.counts = state.drugs[index].drugDose.after14.less60 }
                         else {state.counts = state.drugs[index].drugDose.after14.more60}
                     }
@@ -111,7 +111,7 @@ export const useDrugStore = defineStore('drugStore', {
                     }
                     
                     if (index === 21 ) {
-                        if (age > 14 & age < 17 ) {
+                        if (age > 14 && age < 17 ) {
                             // dose.push(100)
                             state.counts = 2
                         }
@@ -165,7 +165,7 @@ export const useDrugStore = defineStore('drugStore', {
                                     }
                                 }
                                 else {
-                                    if (monthage >= 3 & monthage < 6) {
+                                    if (monthage >= 3 && monthage < 6) {
                                         for (let i = 0; i < maxDoseBefore14.m6.length; i++){
                                             w = weight * perkg[i]
                                             if (w < maxDoseBefore14.m6[i] ) {
@@ -186,7 +186,7 @@ export const useDrugStore = defineStore('drugStore', {
 
                             else {
 
-                                if (monthage > 6 & age < 2){
+                                if (monthage > 6 && age < 2){
                                     
                                     for (let i = 0; i < maxDoseBefore14.y2.length; i++){
                                         w = weight * perkg[i]
@@ -201,7 +201,7 @@ export const useDrugStore = defineStore('drugStore', {
                                     }
                                 }
 
-                                if (monthage >= 2 & age < 4){
+                                if (monthage >= 2 && age < 4){
                                     
                                     for (let i = 0; i < maxDoseBefore14.y4.length; i++){
                                         w = weight * perkg[i]
@@ -216,7 +216,7 @@ export const useDrugStore = defineStore('drugStore', {
                                     }
                                 }
 
-                                if (monthage >= 4 & age < 6){
+                                if (monthage >= 4 && age < 6){
                                     
                                     for (let i = 0; i < maxDoseBefore14.y6.length; i++){
                                         w = weight * perkg[i]
@@ -232,7 +232,7 @@ export const useDrugStore = defineStore('drugStore', {
                                 }
 
 
-                                if (monthage >= 6 & age < 9){
+                                if (monthage >= 6 && age < 9){
                                     
                                     for (let i = 0; i < maxDoseBefore14.y9.length; i++){
                                         w = weight * perkg[i]
@@ -247,7 +247,7 @@ export const useDrugStore = defineStore('drugStore', {
                                     }
                                 }
 
-                                if (monthage >= 9 & age <= 14){
+                                if (monthage >= 9 && age <= 14){
                                     
                                     for (let i = 0; i < maxDoseBefore14.y14.length; i++){
                                         w = weight * perkg[i]
@@ -294,7 +294,7 @@ export const useDrugStore = defineStore('drugStore', {
                             }
                         } 
 
-                        if (weight > 6 & weight <= 9) {
+                        if (weight > 6 && weight <= 9) {
                             for (let i = 0; i < maxbyMass.kg9.max.length; i++){
                                 w = weight * perkg[i]
                             
@@ -310,7 +310,7 @@ export const useDrugStore = defineStore('drugStore', {
                             }
                         }
                         
-                        if (weight > 9 & weight <= 15) {
+                        if (weight > 9 && weight <= 15) {
                             for (let i = 0; i < maxbyMass.kg15.max.length; i++){
                                 w = weight * perkg[i]
                                
@@ -327,7 +327,7 @@ export const useDrugStore = defineStore('drugStore', {
                         }
 
 
-                        if (weight > 15 & weight <= 23) { 
+                        if (weight > 15 && weight <= 23) {
                             for (let i = 0; i < maxbyMass.kg23.max.length; i++){
                                 w = weight * perkg[i]
                                
@@ -342,7 +342,7 @@ export const useDrugStore = defineStore('drugStore', {
                                
                             }
                         }
-                        if (weight > 23 & weight <= 30) {
+                        if (weight > 23 && weight <= 30) {
                             for (let i = 0; i < maxbyMass.kg30.max.length; i++){
                                 w = weight * perkg[i]
                                
@@ -357,7 +357,7 @@ export const useDrugStore = defineStore('drugStore', {
                                
                             }
                         }
-                        if (weight > 30 & weight <= 34) {
+                        if (weight > 30 && weight <= 34) {
                             for (let i = 0; i < maxbyMass.kg34.max.length; i++){
                                 w = weight * perkg[i]
                                
@@ -376,8 +376,7 @@ export const useDrugStore = defineStore('drugStore', {
                         break;
 
                         default:
-                            
-                                dose.push(0)
+                               dose.push(0)
                             break;
                         // default:
                         //     for (let i = 0; i < perkg.length; i++){
@@ -649,7 +648,7 @@ export const useDrugStore = defineStore('drugStore', {
                         dose.push(200)
                         }
 
-                        if (age > 12 & weight > 30) {
+                        if (age > 12 && weight > 30) {
                             dose.push(400)
                             state.counts = 'ежедневно в первые 2 недели, затем 200 мг 3 раза в неделю (с 3 недели перерыв между приемом препарата не менее 48 часов)'
 
@@ -686,19 +685,19 @@ export const useDrugStore = defineStore('drugStore', {
                             state.counts = 2
                         }
 
-                        if (age >=3 & age <= 5 ) {
+                        if (age >=3 && age <= 5 ) {
                             dose.splice(0, dose.length);
                             dose.push(50)
                             state.counts = 2
                         }
 
-                        if (age >=6 & age <= 11 ) {
+                        if (age >=6 && age <= 11 ) {
                             dose.splice(0, dose.length);
                             dose.push(60)
                             state.counts = 2
                         }
 
-                        if (age > 11 & age <= 14 ) {
+                        if (age > 11 && age <= 14 ) {
                             dose.splice(0, dose.length);
                             dose.push(100)
                             state.counts = 2
@@ -720,19 +719,19 @@ export const useDrugStore = defineStore('drugStore', {
 
           originalTitle : (state) => {
             let index = state.selectedDrugId
-            if (index != 0 ) return state.drugs[index].original_title
+            if (index !== 0 ) return state.drugs[index].original_title
             return ''
         },
 
         wayTakiningDrug : (state) => {
             let index = state.selectedDrugId
-            if (index != 0 ) return state.drugs[index].way_takining_grug
+            if (index !== 0 ) return state.drugs[index].way_takining_grug
             return ''
         },
 
         takiningDrugPerDay: (state) => {
             let index = state.selectedDrugId
-            if (index != 0 ) {
+            if (index !== 0 ) {
             let count  =  state.counts//state.drugs[index].inputs_per_day
             if (count === undefined) { count = 1 }
 
@@ -746,7 +745,7 @@ export const useDrugStore = defineStore('drugStore', {
             let index = state.selectedDrugId
             let desc = 'Необходимо наличие информированного согласия законного представителя на применение препарата'
             
-            if (index != 0 ) 
+            if (index !== 0 )
             { 
                 let age = state.agePerson
                 let isneed = state.drugs[index].is_information.isneed
@@ -765,7 +764,7 @@ export const useDrugStore = defineStore('drugStore', {
             let index = state.selectedDrugId
             let desc = 'Требуется решение врачебной комиссии.'
             
-            if (index != 0 ) 
+            if (index !== 0 )
             { 
                 let age = state.agePerson
                 let isneed = state.drugs[index].is_comission.isneed
