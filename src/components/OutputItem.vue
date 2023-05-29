@@ -19,11 +19,10 @@
   <div class="column is-5">
       <div class="level-left">
         <h4 class="is-4 has-text-info-dark mr-2">Дозировка, мг:</h4>
-        <div class="level-item" v-for="dailydose in store.getDose">
-          <h4 class="is-4">{{ dailydose }} -</h4>
-        </div>
-       
-      </div> 
+          <div class="level-item" v-for="dailydose in store.getDose">
+            <h4 class="is-4">{{ dailydose }} -</h4>
+          </div>
+      </div>
      
         <div v-if="store.maximized" class="column">
           <div class="level-left">
@@ -63,10 +62,10 @@
   
   
   
-  {{ store.agePerson }} -
-        {{ store.getDose }} - <br>
-        {{ store.getDrugById(store.selectedDrugId) }} - <br>
-</div>
+<!--  {{ store.agePerson }} - -->
+<!--        {{ store.getDose }} - <br>-->
+<!--        {{ store.getDrugById(store.selectedDrugId) }} - <br>-->
+  </div>
 </template>
 
 <script setup>
@@ -74,7 +73,7 @@
    imports
 */
 
-import { useDrugStore } from '@/stores/drugStore'
+import { useDrugStore } from '@/stores/drugStore_orig'
 import {ref} from 'vue'
 
 

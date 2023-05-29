@@ -15,9 +15,8 @@ export const useDrugStore = defineStore('drugStore', {
             selectedDrugId:0,
             drugs: [],
             dosePerKG:[],
-            dose:[],
+            dose:['неприменимо'], 
             maximized: false,
-            enabled: false,
             counts: 1
         }
     },
@@ -53,84 +52,71 @@ export const useDrugStore = defineStore('drugStore', {
             let monthage = state.agemonthPerson
             let weight = state.weightPerson
             let index = state.selectedDrugId
-            let dose = ['непредусмотрено']
+            let dose = []
             let perkg = []
-            let w = 0
-
-            if  ((age !== 0 || monthage !== 0) && weight !== 0 && index !== 0) {
+          
+            if  ((age !== 0 | monthage !== 0) & weight !== 0 && index !== 0) {
                 state.counts = 1
-                state.maximized = false
+
 
                 perkg = state.drugs[index].drugDose.perKg
                 let maxDoseAfter14 = state.drugs[index].drugDose.after14.max
 
-                console.log(perkg)
+                
 
-                if (age > 14  ) {  // Расчет дозы препарата для лиц старше 14 лет || (weight >= 35 && age <= 14)
+                if (age > 14 || (weight >= 35 && age < 14) ) {  // Расчет дозы препарата для лиц старше 14 лет
+                    state.counts = 1
 
-                    switch (index){
-
-                        case 1:
-                        case 2:
-                        case 3:
-                        case 4:
-                        case 5:
-                        case 6:
-                        case 7:
-                        case 8:
-                        case 9:
-                        case 10:
-                        case 11:
-
-                        case 12:
-                        case 13:
-
-                            if (weight <= 60) { state.counts = state.drugs[index].drugDose.after14.less60 }
-                            else {state.counts = state.drugs[index].drugDose.after14.more60}
-
-                            break
-
-                        case 14:
-                        case 15:
-                        case 16:
-                        case 17:
-                        case 18:
-                            if (weight > 30) {
-                                state.counts = state.drugs[index].notes
-                                dose.push('1000 + 1000')
+                    for (let i = 0; i < perkg.length; i++){
+                        if (weight*perkg[i] < maxDoseAfter14[0] ) {
+                            state.maximized = false
+                            let w =  weight*perkg[i]
+                            if (w !== 0 || w !== null){
+                                dose.length = 0
+                                dose.push(w)
                             }
+                               
+                        }
+                            
+                        else {
+                            state.maximized = true
+                            dose.length = 0
+                            dose.push(maxDoseAfter14[0])
+                        }
 
-                            break
-                        case 19:
-                            state.counts = 'применяется только с амоксициллин + клавуланововая кислота ' + 3 + ' '
-
-                            break
-                        case 20:
-                        case 21:
-                            if (age > 14 && age < 17 ) {
-                                // dose.push(100)
-                                state.counts = 2
-                            }
-                            break
-
-                        default:
-
-                            for (let i = 0; i < perkg.length; i++){
-                                if (weight * perkg[i] < maxDoseAfter14[i] ) {
-
-                                    w =  weight * perkg[i]
-                                    if (w !== 0 || w !== null){
-                                        dose.push(w)
-                                    }
-                                }
-                                else {
-                                    state.maximized = true
-                                    state.enabled = true
-                                    dose.push(maxDoseAfter14[i])
-                                }
-                            }
-                            break
                     }
+
+                    if (index === 13 && age > 14) {
+                        if (weight <= 60) { state.counts = state.drugs[index].drugDose.after14.less60 }
+                        else {state.counts = state.drugs[index].drugDose.after14.more60}
+                    }
+                    else {
+                        state.counts = state.drugs[index].drugDose.after14.less60
+                    }
+
+                    if (index === 15 ) {
+                        if (age < 6 ) state.counts = 0
+                    }
+
+                    if (index === 18 ) {
+                        if (weight > 30) {
+                            state.counts = state.drugs[index].notes
+                            dose.length = 0
+                            dose.push('1000 + 1000')
+                        }
+                    }
+
+                    if (index === 19 ) {
+                        state.counts = 'применяетс я только с амоксициллин + клавуланововая кислота ' + 3 + ' '
+                    }
+                    
+                    if (index === 21 ) {
+                        if (age > 14 && age < 17 ) {
+                            // dose.push(100)
+                            state.counts = 2
+                        }
+                    }
+
                 }
                 else {  // расчет дозы препарата для лиц младше 14 лет
                     state.counts = 1
@@ -139,6 +125,12 @@ export const useDrugStore = defineStore('drugStore', {
                     let maxDoseBefore14 = state.drugs[index].drugDose.before14
                     let maxbyMass = maxDoseBefore14.byMass
                     state.maximized = false
+                    let w = 0
+                
+
+                    
+
+                    state.counts = 1
 
                     switch(index){
                         case 1:
@@ -714,15 +706,10 @@ export const useDrugStore = defineStore('drugStore', {
                     }
 
                 }
-                return dose
+                    
             }
 
-            else {
-                dose.push('NO')
-                return dose
-            }
-
-
+            return dose
 
         }, 
 

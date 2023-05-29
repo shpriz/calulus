@@ -20,7 +20,7 @@
 
 <script setup>
 
-import { useDrugStore } from '@/stores/drugStore'
+import { useDrugStore } from '@/stores/drugStore_orig'
 import { ref, onMounted } from 'vue'
 
 

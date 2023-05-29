@@ -61,7 +61,7 @@
 </template>
 
 <script setup>
-import { useDrugStore } from '@/stores/drugStore';
+import { useDrugStore } from '@/stores/drugStore_orig';
 import { ref, reactive } from 'vue';
 import { vAutofocus } from '@/directives/vAutofocus';
 import vOutputItem from '@/components/OutputItem.vue';

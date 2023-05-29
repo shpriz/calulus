@@ -1,136 +1,134 @@
 [
 
-        {"id": 0,
-        "original_title": "Выберите препарат",
-        "max_daily_dose": 0
-        }, 
-
-
-        {
-      "id": 1,
-      "original_title": "Изониазид",
-
-      "drugDose":{
-        "perKg": [5,10,15],
-
-        "after14": {
-          "max": [600]
-        },
-        
-        "before14": {
-          "m3": [0],
-          "m6": [0],
-          "y2": [600],
-          "y4": [600],
-          "y6": [600],
-          "y9": [600],
-          "y14": [600],
-
- 
-
-
-        "byMass": {
-          "perKg": [],
-
-          "kg6": {
-            "max": []
-          },
-          "kg9": {
-            "max": []
-          },
-          "kg15": {
-            "max": []
-          }, 
-          "kg23": {
-            "max": []
-          },
-          "kg30": {
-            "max": []
-          },
-          "kg34": {
-            "max": []
-          }
-          }
-        }
-      },
-      
-      "way_takining_grug": 
-      [
-        "перорально",
-        "внутривенно",
-        "внутримышечно",
-        "внутрикавернозно",
-        "ингаляционно"
-      ],
-      "inputs_per_day": 1, 
-      "is_for_3_year_child": false,
-      "is_information": {
-        "isneed": false,
-        "is_VK": 0
-      },
-      "is_comission" : {
-        "isneed": false,
-        "is_VK": 0
-      }
+    {"id": 0,
+    "original_title": "Выберите препарат",
+    "max_daily_dose": 0
     },
     {
-      "id": 2,
-      "original_title": "Рифампицин",
-      "drugDose":{
-        "perKg": [10,15],
+  "id": 1,
+  "original_title": "Изониазид",
 
-        "after14": {
-          "max": [600]
-        },
-        
-        "before14": {
-          "m3": [0],
-          "m6": [0],
-          "y2": [600],
-          "y4": [600],
-          "y6": [600],
-          "y9": [600],
-          "y14": [600],
+  "drugDose":{
+    "perKg": [5,10,15],
 
-        "byMass": {
-          "perKg": [],
-
-          "kg6": {
-            "max": []
-          },
-          "kg9": {
-            "max": []
-          },
-          "kg15": {
-            "max": []
-          }, 
-          "kg23": {
-            "max": []
-          },
-          "kg30": {
-            "max": []
-          },
-          "kg34": {
-            "max": []
-          }
-          }
-        }
-      },
-      "way_takining_grug":[
-        "перорально",
-        "внутривенно"
-      ],
-      "inputs_per_day": 1, 
-      "is_for_3_year_child": false,
-      "is_information": {
-        "isneed": false,
-        "is_VK": 0
-      },
-      "is_comission" : {
-        "isneed": false,
-        "is_VK": 0
-      }
+    "after14": {
+      "max": [600]
     },
+
+    "before14": {
+      "m3": [0],
+      "m6": [0],
+      "y2": [600],
+      "y4": [600],
+      "y6": [600],
+      "y9": [600],
+      "y14": [600],
+
+
+
+
+    "byMass": {
+      "perKg": [],
+
+      "kg6": {
+        "max": []
+      },
+      "kg9": {
+        "max": []
+      },
+      "kg15": {
+        "max": []
+      },
+      "kg23": {
+        "max": []
+      },
+      "kg30": {
+        "max": []
+      },
+      "kg34": {
+        "max": []
+      }
+      }
+    }
+  },
+
+  "way_takining_grug":
+  [
+    "перорально",
+    "внутривенно",
+    "внутримышечно",
+    "внутрикавернозно",
+    "ингаляционно"
+  ],
+  "inputs_per_day": 1,
+  "is_for_3_year_child": false,
+  "is_information": {
+    "isneed": false,
+    "is_VK": 0
+  },
+  "is_comission" : {
+    "isneed": false,
+    "is_VK": 0
+  }
+},
+    {
+  "id": 2,
+  "original_title": "Рифампицин",
+  "drugDose":{
+    "perKg": [10,15],
+
+    "after14": {
+      "max": [600]
+    },
+
+    "before14": {
+      "m3": [0],
+      "m6": [0],
+      "y2": [600],
+      "y4": [600],
+      "y6": [600],
+      "y9": [600],
+      "y14": [600],
+
+    "byMass": {
+      "perKg": [],
+
+      "kg6": {
+        "max": []
+      },
+      "kg9": {
+        "max": []
+      },
+      "kg15": {
+        "max": []
+      },
+      "kg23": {
+        "max": []
+      },
+      "kg30": {
+        "max": []
+      },
+      "kg34": {
+        "max": []
+      }
+      }
+    }
+  },
+  "way_takining_grug":[
+    "перорально",
+    "внутривенно"
+  ],
+  "inputs_per_day": 1,
+  "is_for_3_year_child": false,
+  "is_information": {
+    "isneed": false,
+    "is_VK": 0
+  },
+  "is_comission" : {
+    "isneed": false,
+    "is_VK": 0
+  }
+},
     {
       "id": 3,
       "original_title": "Пиразинамин",
@@ -605,28 +603,26 @@
       
     },
 
-    {
-      "id": 11,
-      "original_title": "Капреомицин",
-      "drugDose":{
+  {
+    "id": 11,
+    "original_title": "Капреомицин",
+    "drugDose":{
+      "perKg": [15, 20],
 
-        "after14": {
-          "perKg": [15, 20],
-          "max": [1000]
-        },
-        
-        "before14": {
-          "m3": [0],
-          "m6": [0],
-          "y2": [1000],
-          "y4": [1000],
-          "y6": [1000],
-          "y9": [1000],
-          "y14": [1000],
+      "after14": {
+        "max": [1000]
+      },
 
+      "before14": {
+        "m3": [0],
+        "m6": [0],
+        "y2": [1000],
+        "y4": [1000],
+        "y6": [1000],
+        "y9": [1000],
+        "y14": [1000],
 
         "byMass": {
-          "perKg": [],
 
           "kg6": {
             "max": []
@@ -636,7 +632,7 @@
           },
           "kg15": {
             "max": []
-          }, 
+          },
           "kg23": {
             "max": []
           },
@@ -646,26 +642,27 @@
           "kg34": {
             "max": []
           }
-          }
         }
-      },
-      "way_takining_grug": [
-      
-        "внутривенно",
-        "внутримышечно"
-      ],
-      "inputs_per_day": 1, 
-      "is_for_3_year_child": false,
-      "is_information": {
-        "isneed": true,
-        "is_VK": 300
-      },
-      "is_comission" : {
-        "isneed": true,
-        "is_VK": 18
       }
     },
-    {
+    "way_takining_grug": [
+      "внутривенно",
+      "внутримышечно"
+    ],
+    "inputs_per_day": 1,
+    "is_for_3_year_child": false,
+    "is_information": {
+      "isneed": true,
+      "is_VK": 300
+    },
+    "is_comission" : {
+      "isneed": true,
+      "is_VK": 18
+    }
+
+  },
+
+  {
       "id": 12,
       "original_title": "Циклосерин",
       "drugDose":{
@@ -807,28 +804,29 @@
         }
       ]
     },
-    {
-      "id": 14,
-      "original_title": "Аминосалициловая кислота",
-      "drugDose":{
 
-        "after14": {
-          "perKg": [150, 200],
-          "max": [10000, 15000]
-        },
-        
-        "before14": {
-          "m3": [200, 300],
-          "m6": [200, 300],
-          "y2": [200, 300],
-          "y4": [200, 300],
-          "y6": [350],
-          "y9": [200],
-          "y14": [200],
+  {
+    "id": 14,
+    "original_title": "Аминосалициловая кислота",
+    "drugDose":{
+      "perKg": [150, 200],
 
+      "after14": {
+        "max": [10000, 15000],
+        "less60": 2,
+        "more60": 3
+      },
+
+      "before14": {
+        "m3": [200, 300],
+        "m6": [200, 300],
+        "y2": [200, 300],
+        "y4": [200, 300],
+        "y6": [350],
+        "y9": [200],
+        "y14": [200],
 
         "byMass": {
-          "perKg": [],
 
           "kg6": {
             "max": []
@@ -838,7 +836,7 @@
           },
           "kg15": {
             "max": []
-          }, 
+          },
           "kg23": {
             "max": []
           },
@@ -848,27 +846,41 @@
           "kg34": {
             "max": []
           }
-          }
-        }
-      },
-      "way_takining_grug": [
-      
-        "внутривенно"
 
-      ],
-      "inputs_per_day": 1, 
-      "is_for_3_year_child": false,
-      "is_information": {
-        "isneed": false,
-        "is_VK": 0
-      },
-      "is_comission" : {
-        "isneed": false,
-        "is_VK": 0
-      },
-      "age_less_14_cyt": [200],
-      "age_14_cyt": [10, 15]
+        }
+      }
     },
+    "way_takining_grug": [
+      "внутривенно"
+    ],
+    "inputs_per_day": 1,
+    "is_for_3_year_child": false,
+    "is_information": {
+      "isneed": false,
+      "is_VK": 0
+    },
+    "is_comission" : {
+      "isneed": false,
+      "is_VK": 0
+    },
+    "age_less_14_cyt": [
+      {
+        "six_year": [],
+        "none_year": [],
+        "fif_year": [],
+        "twethree_year": [],
+        "therty_year": [],
+        "thertyfor_year": []
+      }
+    ],
+    "age_14_cyt_per_day_count": [
+      {
+        "weight_less_60": 1,
+        "weight_more_60": 1
+      }
+    ]
+  },
+
     {
       "id": 15,
       "unique": true,
@@ -1088,7 +1100,6 @@
         "is_VK": 0
       }
     },
-
     {
       "id": 19,
       "original_title": "Меропенем",
@@ -1141,10 +1152,6 @@
         "is_VK": 0
       }
     },
-
-
-
-
     {
       "id": 20,
       "original_title": "Рифапентин",
@@ -1197,9 +1204,6 @@
         "is_VK": 0
       }
     },
-
-
-
     {
       "id": 21,
       "original_title": "Деламанид",
