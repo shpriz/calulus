@@ -218,7 +218,7 @@ export const useDrugStore = defineStore('drugStore', {
                                 state.counts = state.drugs[index].drugDose.after14.less60
 
                             } else {
-                                dose.push('неприменимо')
+                                // dose.push('неприменимо')
                                 state.counts = state.drugs[index].drugDose.after14.more60
 
                             }
