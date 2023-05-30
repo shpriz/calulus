@@ -187,6 +187,18 @@ export const useDrugStore = defineStore('drugStore', {
 
                     state.maximized = false
 
+                    for (let i = 0; i < perkg.length; i++) {
+                         w = weight * perkg[i]
+                         if (w < maxDoseAfter14) {
+                            state.maximized = false
+                            dose.push(w)
+                             }
+                         else {
+                             state.maximized = true
+                             state.enabled = true
+                             dose.push(maxDoseAfter14[0])
+                         }
+                    }
 
 
                         if (index === 11) {
