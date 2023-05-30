@@ -38,7 +38,7 @@ import vAgeInput from '@/components/AgeInput.vue'
 import vSelectInput from '@/components/SelectInput.vue'
 import vOutputItem from '@/components/OutputItem.vue'
 import { ref } from 'vue'
-import { useDrugStore } from '@/stores/drugStore_orig'
+import { useDrugStore } from '@/stores/drugStore'
 
 const store = useDrugStore()
 
