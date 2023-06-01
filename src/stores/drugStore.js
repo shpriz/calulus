@@ -183,26 +183,21 @@ export const useDrugStore = defineStore('drugStore', {
                 }
                 else {  // расчет дозы препарата для лиц младше 14 лет
 
-
-
-                    state.maximized = false
-
                     for (let i = 0; i < perkg.length; i++) {
-                         w = weight * perkg[i]
-                         if (w < maxDoseAfter14) {
+                        w = weight * perkg[i]
+                        if (w < maxDoseAfter14) {
                             state.maximized = false
                             dose.push(w)
-                             }
-                         else {
-                             state.maximized = true
-                             state.enabled = true
-                             dose.push(maxDoseAfter14[0])
-                         }
+                        } else {
+                            state.maximized = true
+                            state.enabled = true
+                            dose.push(maxDoseAfter14[i])
+                        }
                     }
 
 
-                        if (index === 11) {
-                            if (age > 7 && age < 14) {
+                    if (index === 11) {
+                            if (age > 7 && age <= 14) {
                                 for (let i = 0; i < maxDoseBefore14.y2.length; i++) {
                                     w = weight * perkg[i]
                                     if (w < maxDoseBefore14.y2.max) {
@@ -218,55 +213,47 @@ export const useDrugStore = defineStore('drugStore', {
                                 state.counts = state.drugs[index].drugDose.after14.less60
 
                             } else {
-                                // dose.push('неприменимо')
+                                dose.length = 0;
+                                dose.push('неприменимо')
                                 state.counts = state.drugs[index].drugDose.after14.more60
 
                             }
                         }
+                    if (index === 14 ) { // "Аминосалициловая кислота"
 
-                        if (index === 14 ) {
-
-
-                            for (let i = 0; i < perkg.length; i++) {
-                                if (weight * perkg[i] < maxDoseAfter14[i]) {
-
-                                    w = weight * perkg[i]
-                                    if (w !== 0 || w !== null) {
-
-                                        dose.push(w)
-                                    }
-                                } else {
-                                    state.maximized = true
-                                    state.enabled = true
-                                    dose.push(maxDoseAfter14[i])
-                                }
+                        if (age >= 1 && age < 7) {
+                                // dose.length = 0;
+                                // for (let i = 0; i < maxDoseBefore14.y2.length; i++) {
+                                //     w = weight * perkg[i]
+                                //     if (w < maxDoseBefore14.y2.max) {
+                                //         state.maximized = false
+                                //         dose.push(w)
+                                //     } else {
+                                //         state.maximized = true
+                                //         dose.push(maxDoseBefore14.y2[i])
+                                //
+                                //     }
+                                //
+                                // }
                             }
 
-                            if (age < 1 && monthage <= 11){
-                                dose.length = 0;
-                                for (let i = 0; i < maxDoseBefore14.m3.length; i++) {
-                                    w = weight * perkg[i]
-                                    if (w < maxDoseBefore14.m3.max) {
-                                        state.maximized = false
-                                        dose.push(w)
-                                    } else {
-                                        state.maximized = true
-                                        dose.push(maxDoseBefore14.m3[i])
-
-                                    }
-
-                                }
-                            }
-
-                            if (age > 7 && age < 14 ){
-                                dose.length =0;
-
-                            }
-
-
+                            if (age >= 7 && age <= 14 ){
+                             //    dose.length =0;
+                             //   for (let i = 0; i < maxDoseBefore14.y14.length; i++) {
+                             //        w = weight * perkg
+                             //        if (w < maxDoseBefore14.y14.max) {
+                             //            state.maximized = false
+                             //            dose.push(weight)
+                             //        } else {
+                             //            state.maximized = true
+                             //            dose.push(maxDoseBefore14.y14[i])
+                             //
+                             //        }
+                             //
+                             //    }
+                              }
                         }
-
-                         if (index === 15) {
+                    if (index === 15) {
                              state.counts = ''
 
                              if (age < 6) {
@@ -401,8 +388,7 @@ export const useDrugStore = defineStore('drugStore', {
 
 
                     }
-
-                     if (index === 21) {
+                    if (index === 21) {
 
                          if (age < 3) {
                              dose.length = 0;
@@ -499,7 +485,7 @@ export const useDrugStore = defineStore('drugStore', {
             let count  =  state.counts//state.drugs[index].inputs_per_day
             if (count === undefined) { count = 1 }
 
-            let description = count > 1 ? 'раза в день' : 'раз в день'
+            let description = count > 1 ? 'раза в сутки' : 'раз в сутки'
              return `${count} ${description}`
             }
             return ''
