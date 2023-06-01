@@ -118,6 +118,9 @@ export const useDrugStore = defineStore('drugStore', {
                             state.counts = state.drugs[index].notes
                             dose.push('1000 + 1000')
                         }
+                        else {
+                            dose.push('неприменимо')
+                        }
 
                     }
 
@@ -128,7 +131,30 @@ export const useDrugStore = defineStore('drugStore', {
                     }
 
 
-                if (index ===  21){
+                    if (index===20) {
+                        dose.length = 0;
+
+                            // for (let i = 0; i < perkg.length; i++) {
+                            w = weight * perkg[0]
+                            //     if (w < maxDoseAfter14[i]) {
+                            //        if (w !== 0 || w !== null) {
+                            dose.push(w)
+                            //         }
+                            //     } else {
+                            state.maximized = false
+                            //         state.enabled = true
+                            //         dose.push(maxDoseAfter14[i])
+                            //     }
+                            // }
+
+                            state.counts = '2 - 3 раза '
+
+
+
+                    }
+
+
+                    if (index ===  21){
                     dose.length = 0;
                     if (age >=14 && age < 17) {
                         for (let i = 0; i < maxDoseBefore14.y9.length; i++) {
@@ -253,7 +279,7 @@ export const useDrugStore = defineStore('drugStore', {
                              //    }
                               }
                         }
-                    if (index === 15) {
+                    if (index === 15 ) {
                              state.counts = ''
 
                              if (age < 6) {
@@ -283,7 +309,7 @@ export const useDrugStore = defineStore('drugStore', {
                                          state.counts = 'ежедневно в первые 2 недели, затем 200 мг 3 раза в неделю (с 3 недели перерыв между приемом препарата не менее 48 часов)'
                                      }
                                      else {
-                                         dose.push('Наверное 200')
+                                         dose.push(200)
                                          state.counts = ''
                                      }
 
@@ -294,10 +320,14 @@ export const useDrugStore = defineStore('drugStore', {
                                  }
                              }
                          }
-                    if (index === 17) {
+                    if (index === 17 || index === 19) {
 
-                        state.counts = 1
+                        if (index === 17) state.counts = 1
+                        else state.counts = 3
+
+                        state.maximized = false
                         if (weight <= 6) {
+                            dose.length=0;
                             for (let i = 0; i < maxbyMass.kg6.max.length; i++) {
                                 w = weight * perkg[i]
 
@@ -313,6 +343,7 @@ export const useDrugStore = defineStore('drugStore', {
                         }
 
                         if (weight > 6 && weight <= 9) {
+                            dose.length=0;
                             for (let i = 0; i < maxbyMass.kg9.max.length; i++) {
                                 w = weight * perkg[i]
 
@@ -328,6 +359,7 @@ export const useDrugStore = defineStore('drugStore', {
                         }
 
                         if (weight > 9 && weight <= 15) {
+                            dose.length=0;
                             for (let i = 0; i < maxbyMass.kg15.max.length; i++) {
                                 w = weight * perkg[i]
 
@@ -344,6 +376,7 @@ export const useDrugStore = defineStore('drugStore', {
 
 
                         if (weight > 15 && weight <= 23) {
+                            dose.length=0;
                             for (let i = 0; i < maxbyMass.kg23.max.length; i++) {
                                 w = weight * perkg[i]
 
@@ -358,6 +391,8 @@ export const useDrugStore = defineStore('drugStore', {
                             }
                         }
                         if (weight > 23 && weight <= 30) {
+
+                            dose.length=0;
                             for (let i = 0; i < maxbyMass.kg30.max.length; i++) {
                                 w = weight * perkg[i]
 
@@ -388,6 +423,45 @@ export const useDrugStore = defineStore('drugStore', {
 
 
                     }
+
+                    if (index === 18 ) {
+                        dose.length = 0;
+                        state.maximized = false
+
+                        dose.length = 0;
+                        dose.push('Неприменимо до 14 лет')
+
+                        state.counts = 0
+
+                    }
+
+                    if (index===20) {
+                        dose.length = 0;
+
+                        if (age <= 12 ) {
+                            state.maximized = false
+                            dose.push('неприменимо')
+                        }
+                        else {
+
+                            // for (let i = 0; i < perkg.length; i++) {
+                                 w = weight * perkg[0]
+                            //     if (w < maxDoseAfter14[i]) {
+                            //        if (w !== 0 || w !== null) {
+                                         dose.push(w)
+                            //         }
+                            //     } else {
+                                     state.maximized = false
+                            //         state.enabled = true
+                            //         dose.push(maxDoseAfter14[i])
+                            //     }
+                            // }
+
+                            state.counts = '2 - 3 раза '
+                        }
+
+
+                    }
                     if (index === 21) {
 
                          if (age < 3) {
@@ -400,6 +474,7 @@ export const useDrugStore = defineStore('drugStore', {
                          else {
 
                              if (age >= 3 || age <= 5) {
+                                 dose.length=0;
                                  for (let i = 0; i < maxDoseBefore14.y2.length; i++) {
                                      w = weight * perkg[i]
                                      if (w < maxDoseBefore14.y2[i]) {
@@ -483,9 +558,15 @@ export const useDrugStore = defineStore('drugStore', {
             let index = state.selectedDrugId
             if (index !== 0 ) {
             let count  =  state.counts//state.drugs[index].inputs_per_day
+            let description = ''
             if (count === undefined) { count = 1 }
+            if (typeof (count) === "string") {
+                description = ' в неделю'
+            }
 
-            let description = count > 1 ? 'раза в сутки' : 'раз в сутки'
+                 else
+                     description = count > 1 ? 'раза в сутки' : 'раз в сутки'
+
              return `${count} ${description}`
             }
             return ''
