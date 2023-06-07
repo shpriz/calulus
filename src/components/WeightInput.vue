@@ -8,8 +8,8 @@
                 @change.prevent="store.getWeight(weightInput)"
                 class="input" 
                 min="0" 
-                max="500"
-                maxlength="4"
+                max="150"
+                maxlength="3"
                 type="number" 
                 >
             </div>

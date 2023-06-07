@@ -12,7 +12,7 @@
                             class="input" 
                             type="number" 
                             min="0"
-                            max="200"
+                            max="17"
                             maxlength="3"
                         >
                         

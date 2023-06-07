@@ -18,9 +18,9 @@
 <div class="columns mt-3">
   <div class="column is-5">
       <div class="level-left">
-        <h4 class="is-4 has-text-info-dark mr-2">Дозировка, мг:</h4>
+        <h4 class="is-5 has-text-info-dark mr-2">Дозировка, мг:</h4>
           <div class="level-item" v-for="dailydose in store.getDose">
-            <h4 class="is-4">{{ dailydose }} -</h4>
+            <h4 class="is-4">{{ dailydose }}</h4>
           </div>
       </div>
      
@@ -62,9 +62,9 @@
   
   
   
-<!--  {{ store.agePerson }} - -->
-<!--        {{ store.getDose }} - <br>-->
-<!--        {{ store.getDrugById(store.selectedDrugId) }} - <br>-->
+  {{ store.agePerson }} -
+        {{ store.getDose }} - <br>
+        {{ store.getDrugById(store.selectedDrugId) }} - <br>
   </div>
 </template>
 

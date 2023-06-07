@@ -1,338 +1,1262 @@
 [
-    {
-        "id": 0,
-        "original_title": "Изониазид",
-        "daily_dose_per_kg": [5, 10, 15],
-        "max_daily_dose": 600,
-        "inputs_per_day": 1, 
-        "way_takining_grug": 
-        [
-          "внутрь",
-          "внутривенно",
-          "внутримышечно",
-          "внутрикавернозно",
-          "ингаляционно"
-        ],
-        "is_for_3_year_child": false,
-        "is_information": false,
-        "is_comission" : false,
-        "is_VK": 0
+
+  {"id": 0,
+    "original_title": "Выберите препарат",
+    "max_daily_dose": 0
+  },
+  {
+    "id": 1,
+    "original_title": "Изониазид",
+
+    "drugDose":{
+      "perKg": [5,10,15],
+
+      "after14": {
+        "max": [600]
       },
 
-      {
-        "id": 1,
-        "original_title": "Рифампицин",
-        "daily_dose_per_kg": [10, 15],
-        "max_daily_dose": 600,
-        "inputs_per_day": 1, 
-        "way_takining_grug":[
-            "внутрь",
-            "внутривенно"
-          ],
-        "is_for_3_year_child": false,
-        "is_information": false,
-        "is_comission" : false,
-        "is_VK": 0
-      },
-      {
-        "id": 2,
-        "original_title": "Пиразинамин",
-        "daily_dose_per_kg": [20, 40],
-        "max_daily_dose": 1500,
-        "inputs_per_day": 1, 
-        "way_takining_grug": [
-          "внутрь"
-        ],
-        "is_for_3_year_child": false,
-        "is_information": false,
-        "is_comission" : false,
-        "is_VK": 0
-      },
-      {
-        "id": 0,
-        "original_title": "Изониазид",
-        "daily_dose_per_kg": [5, 10, 15],
-        "max_daily_dose": 600,
-        "inputs_per_day": 1, 
-        "way_takining_grug": 
-        [
-          "внутрь",
-          "внутривенно",
-          "внутримышечно",
-          "внутрикавернозно",
-          "ингаляционно"
-        ],
-        "is_for_3_year_child": false,
-        "is_information": false,
-        "is_comission" : false,
-        "is_VK": 0
-      },
-      {
-        "id": 0,
-        "original_title": "Изониазид",
-        "daily_dose_per_kg": [5, 10, 15],
-        "max_daily_dose": 600,
-        "inputs_per_day": 1, 
-        "way_takining_grug": 
-        [
-          "внутрь",
-          "внутривенно",
-          "внутримышечно",
-          "внутрикавернозно",
-          "ингаляционно"
-        ],
-        "is_for_3_year_child": false,
-        "is_information": false,
-        "is_comission" : false,
-        "is_VK": 0
-      },
-      {
-        "id": 0,
-        "original_title": "Изониазид",
-        "daily_dose_per_kg": [5, 10, 15],
-        "max_daily_dose": 600,
-        "inputs_per_day": 1, 
-        "way_takining_grug": 
-        [
-          "внутрь",
-          "внутривенно",
-          "внутримышечно",
-          "внутрикавернозно",
-          "ингаляционно"
-        ],
-        "is_for_3_year_child": false,
-        "is_information": false,
-        "is_comission" : false,
-        "is_VK": 0
-      },
-      {
-        "id": 0,
-        "original_title": "Изониазид",
-        "daily_dose_per_kg": [5, 10, 15],
-        "max_daily_dose": 600,
-        "inputs_per_day": 1, 
-        "way_takining_grug": 
-        [
-          "внутрь",
-          "внутривенно",
-          "внутримышечно",
-          "внутрикавернозно",
-          "ингаляционно"
-        ],
-        "is_for_3_year_child": false,
-        "is_information": false,
-        "is_comission" : false,
-        "is_VK": 0
-      },
-      {
-        "id": 0,
-        "original_title": "Изониазид",
-        "daily_dose_per_kg": [5, 10, 15],
-        "max_daily_dose": 600,
-        "inputs_per_day": 1, 
-        "way_takining_grug": 
-        [
-          "внутрь",
-          "внутривенно",
-          "внутримышечно",
-          "внутрикавернозно",
-          "ингаляционно"
-        ],
-        "is_for_3_year_child": false,
-        "is_information": false,
-        "is_comission" : false,
-        "is_VK": 0
-      },
-      {
-        "id": 0,
-        "original_title": "Изониазид",
-        "daily_dose_per_kg": [5, 10, 15],
-        "max_daily_dose": 600,
-        "inputs_per_day": 1, 
-        "way_takining_grug": 
-        [
-          "внутрь",
-          "внутривенно",
-          "внутримышечно",
-          "внутрикавернозно",
-          "ингаляционно"
-        ],
-        "is_for_3_year_child": false,
-        "is_information": false,
-        "is_comission" : false,
-        "is_VK": 0
-      },
-      {
-        "id": 0,
-        "original_title": "Изониазид",
-        "daily_dose_per_kg": [5, 10, 15],
-        "max_daily_dose": 600,
-        "inputs_per_day": 1, 
-        "way_takining_grug": 
-        [
-          "внутрь",
-          "внутривенно",
-          "внутримышечно",
-          "внутрикавернозно",
-          "ингаляционно"
-        ],
-        "is_for_3_year_child": false,
-        "is_information": false,
-        "is_comission" : false,
-        "is_VK": 0
-      },
-      {
-        "id": 0,
-        "original_title": "Изониазид",
-        "daily_dose_per_kg": [5, 10, 15],
-        "max_daily_dose": 600,
-        "inputs_per_day": 1, 
-        "way_takining_grug": 
-        [
-          "внутрь",
-          "внутривенно",
-          "внутримышечно",
-          "внутрикавернозно",
-          "ингаляционно"
-        ],
-        "is_for_3_year_child": false,
-        "is_information": false,
-        "is_comission" : false,
-        "is_VK": 0
-      },
-      {
-        "id": 0,
-        "original_title": "Изониазид",
-        "daily_dose_per_kg": [5, 10, 15],
-        "max_daily_dose": 600,
-        "inputs_per_day": 1, 
-        "way_takining_grug": 
-        [
-          "внутрь",
-          "внутривенно",
-          "внутримышечно",
-          "внутрикавернозно",
-          "ингаляционно"
-        ],
-        "is_for_3_year_child": false,
-        "is_information": false,
-        "is_comission" : false,
-        "is_VK": 0
-      },
-      {
-        "id": 0,
-        "original_title": "Изониазид",
-        "daily_dose_per_kg": [5, 10, 15],
-        "max_daily_dose": 600,
-        "inputs_per_day": 1, 
-        "way_takining_grug": 
-        [
-          "внутрь",
-          "внутривенно",
-          "внутримышечно",
-          "внутрикавернозно",
-          "ингаляционно"
-        ],
-        "is_for_3_year_child": false,
-        "is_information": false,
-        "is_comission" : false,
-        "is_VK": 0
-      },
-      {
-        "id": 0,
-        "original_title": "Изониазид",
-        "daily_dose_per_kg": [5, 10, 15],
-        "max_daily_dose": 600,
-        "inputs_per_day": 1, 
-        "way_takining_grug": 
-        [
-          "внутрь",
-          "внутривенно",
-          "внутримышечно",
-          "внутрикавернозно",
-          "ингаляционно"
-        ],
-        "is_for_3_year_child": false,
-        "is_information": false,
-        "is_comission" : false,
-        "is_VK": 0
-      },
-      {
-        "id": 0,
-        "original_title": "Изониазид",
-        "daily_dose_per_kg": [5, 10, 15],
-        "max_daily_dose": 600,
-        "inputs_per_day": 1, 
-        "way_takining_grug": 
-        [
-          "внутрь",
-          "внутривенно",
-          "внутримышечно",
-          "внутрикавернозно",
-          "ингаляционно"
-        ],
-        "is_for_3_year_child": false,
-        "is_information": false,
-        "is_comission" : false,
-        "is_VK": 0
-      },
-      {
-        "id": 0,
-        "original_title": "Изониазид",
-        "daily_dose_per_kg": [5, 10, 15],
-        "max_daily_dose": 600,
-        "inputs_per_day": 1, 
-        "way_takining_grug": 
-        [
-          "внутрь",
-          "внутривенно",
-          "внутримышечно",
-          "внутрикавернозно",
-          "ингаляционно"
-        ],
-        "is_for_3_year_child": false,
-        "is_information": false,
-        "is_comission" : false,
-        "is_VK": 0
-      },
-      {
-        "id": 0,
-        "original_title": "Изониазид",
-        "daily_dose_per_kg": [5, 10, 15],
-        "max_daily_dose": 600,
-        "inputs_per_day": 1, 
-        "way_takining_grug": 
-        [
-          "внутрь",
-          "внутривенно",
-          "внутримышечно",
-          "внутрикавернозно",
-          "ингаляционно"
-        ],
-        "is_for_3_year_child": false,
-        "is_information": false,
-        "is_comission" : false,
-        "is_VK": 0
-      },
-      {
-        "id": 0,
-        "original_title": "Изониазид",
-        "daily_dose_per_kg": [5, 10, 15],
-        "max_daily_dose": 600,
-        "inputs_per_day": 1, 
-        "way_takining_grug": 
-        [
-          "внутрь",
-          "внутривенно",
-          "внутримышечно",
-          "внутрикавернозно",
-          "ингаляционно"
-        ],
-        "is_for_3_year_child": false,
-        "is_information": false,
-        "is_comission" : false,
-        "is_VK": 0
+      "before14": {
+        "m3": [0],
+        "m6": [0],
+        "y2": [600],
+        "y4": [600],
+        "y6": [600],
+        "y9": [600],
+        "y14": [600],
+
+
+
+
+        "byMass": {
+          "perKg": [],
+
+          "kg6": {
+            "max": []
+          },
+          "kg9": {
+            "max": []
+          },
+          "kg15": {
+            "max": []
+          },
+          "kg23": {
+            "max": []
+          },
+          "kg30": {
+            "max": []
+          },
+          "kg34": {
+            "max": []
+          }
+        }
       }
+    },
+
+    "way_takining_grug":
+    [
+      "перорально",
+      "внутривенно",
+      "внутримышечно",
+      "внутрикавернозно",
+      "ингаляционно"
+    ],
+    "inputs_per_day": 1,
+    "is_for_3_year_child": false,
+    "is_information": {
+      "isneed": false,
+      "is_VK": 0
+    },
+    "is_comission" : {
+      "isneed": false,
+      "is_VK": 0
+    }
+  },
+  {
+    "id": 2,
+    "original_title": "Рифампицин",
+    "drugDose":{
+      "perKg": [10,15],
+
+      "after14": {
+        "max": [600]
+      },
+
+      "before14": {
+        "m3": [0],
+        "m6": [0],
+        "y2": [600],
+        "y4": [600],
+        "y6": [600],
+        "y9": [600],
+        "y14": [600],
+
+        "byMass": {
+          "perKg": [],
+
+          "kg6": {
+            "max": []
+          },
+          "kg9": {
+            "max": []
+          },
+          "kg15": {
+            "max": []
+          },
+          "kg23": {
+            "max": []
+          },
+          "kg30": {
+            "max": []
+          },
+          "kg34": {
+            "max": []
+          }
+        }
+      }
+    },
+    "way_takining_grug":[
+      "перорально",
+      "внутривенно"
+    ],
+    "inputs_per_day": 1,
+    "is_for_3_year_child": false,
+    "is_information": {
+      "isneed": false,
+      "is_VK": 0
+    },
+    "is_comission" : {
+      "isneed": false,
+      "is_VK": 0
+    }
+  },
+  {
+    "id": 3,
+    "original_title": "Пиразинамин",
+    "drugDose":{
+      "perKg": [20, 40],
+
+      "after14": {
+        "max": [1500]
+      },
+
+      "before14": {
+        "m3": [0],
+        "m6": [0],
+        "y2": [0],
+        "y4": [0],
+        "y6": [0],
+        "y9": [0],
+        "y14": [0],
+
+        "byMass": {
+
+          "kg6": {
+            "max": [150]
+          },
+          "kg9": {
+            "max": [300]
+          },
+          "kg15": {
+            "max": [450]
+          },
+          "kg23": {
+            "max": [600, 750]
+          },
+          "kg30": {
+            "max": [1000]
+          },
+          "kg34": {
+            "max": [1200, 1250]
+          }
+        }
+      }
+    },
+    "way_takining_grug": [
+      "перорально"
+    ],
+    "inputs_per_day": 1,
+    "is_for_3_year_child": true,
+    "is_information": {
+      "isneed": true,
+      "is_VK": 3
+    },
+    "is_comission" : {
+      "isneed": false,
+      "is_VK": 0
+    },
+    "age_less_14_cyt": [
+      {
+        "six_year": [150],
+        "none_year": [300],
+        "fif_year": [450],
+        "twethree_year": [600, 750],
+        "therty_year": [1000],
+        "thertyfor_year": [1200, 1250]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "original_title": "Этамбутол",
+    "drugDose":{
+      "perKg": [15, 25],
+
+      "after14": {
+        "max": [1000]
+      },
+
+      "before14": {
+        "m3": [0],
+        "m6": [0],
+        "y2": [1000],
+        "y4": [1000],
+        "y6": [1000],
+        "y9": [1000],
+        "y14": [1000],
 
 
+        "byMass": {
+          "kg6": {
+            "max": [100]
+          },
+          "kg9": {
+            "max": [200]
+          },
+          "kg15": {
+            "max": [300]
+          },
+          "kg23": {
+            "max": [400, 750]
+          },
+          "kg30": {
+            "max": [400, 600]
+          },
+          "kg34": {
+            "max": [800, 1000]
+          }
+        }
+      }
+    },
+    "way_takining_grug": [
+      "перорально"
+    ],
+    "inputs_per_day": 1,
+    "is_for_3_year_child": false,
+    "is_information": {
+      "isneed": true,
+      "is_VK": 13
+    },
+    "is_comission" : {
+      "isneed": false,
+      "is_VK": 0
+    },
+    "age_less_14_cyt": [
+      {
+        "six_year": [100],
+        "none_year": [200],
+        "fif_year": [300],
+        "twethree_year": [400],
+        "therty_year": [400, 600],
+        "thertyfor_year": [800]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "original_title": "Стрептомицин",
+    "drugDose":{
+      "perKg": [15, 20],
+
+      "after14": {
+        "max": [1000]
+      },
+
+      "before14": {
+        "m3": [10],
+        "m6": [15],
+        "y2": [20],
+        "y4": [300],
+        "y6": [350],
+        "y9": [400],
+        "y14": [500],
+
+        "byMass": {
+
+          "kg6": {
+            "max": []
+          },
+          "kg9": {
+            "max": []
+          },
+          "kg15": {
+            "max": []
+          },
+          "kg23": {
+            "max": []
+          },
+          "kg30": {
+            "max": []
+          },
+          "kg34": {
+            "max": []
+          }
+        }
+      }
+    },
+    "way_takining_grug": ["внутримышечно"],
+    "inputs_per_day": 1,
+    "is_for_3_year_child": false,
+    "is_information": {
+      "isneed": false,
+      "is_VK": 0
+    },
+    "is_comission" : {
+      "isneed": false,
+      "is_VK": 0
+    }
+
+  },
+  {
+    "id": 6,
+    "original_title": "Канамицин",
+    "drugDose":{
+      "perKg": [15, 20],
+
+      "after14": {
+        "max": [750]
+      },
+
+      "before14": {
+        "m3": [0],
+        "m6": [0],
+        "y2": [750],
+        "y4": [750],
+        "y6": [750],
+        "y9": [750],
+        "y14": [750],
+
+
+        "byMass": {
+
+          "kg6": {
+            "max": []
+          },
+          "kg9": {
+            "max": []
+          },
+          "kg15": {
+            "max": []
+          },
+          "kg23": {
+            "max": []
+          },
+          "kg30": {
+            "max": []
+          },
+          "kg34": {
+            "max": []
+          }
+        }
+      }
+    },
+    "way_takining_grug": ["внутримышечно"],
+    "inputs_per_day": 1,
+    "is_for_3_year_child": false,
+    "is_information": {
+      "isneed": false,
+      "is_VK": 0
+    },
+    "is_comission" : {
+      "isneed": false,
+      "is_VK": 0
+    }
+  },
+  {
+    "id": 7,
+    "original_title": "Амикацин",
+    "drugDose":{
+      "perKg": [15,25],
+
+      "after14": {
+        "max": [1000]
+      },
+
+      "before14": {
+        "m3": [0],
+        "m6": [0],
+        "y2": [1000],
+        "y4": [1000],
+        "y6": [1000],
+        "y9": [1000],
+        "y14": [1000],
+
+        "byMass": {
+
+          "kg6": {
+            "max": []
+          },
+          "kg9": {
+            "max": []
+          },
+          "kg15": {
+            "max": []
+          },
+          "kg23": {
+            "max": []
+          },
+          "kg30": {
+            "max": []
+          },
+          "kg34": {
+            "max": []
+          }
+        }
+      }
+    },
+    "way_takining_grug": [
+      "внутривенно",
+      "внутримышечно"
+    ],
+    "inputs_per_day": 1,
+    "is_for_3_year_child": false,
+    "is_information": {
+      "isneed": false,
+      "is_VK": 0
+    },
+    "is_comission" : {
+      "isneed": true,
+      "is_VK": 14
+    }
+  },
+  {
+    "id": 8,
+    "original_title": "Левофлоксацин",
+    "drugDose":{
+      "perKg": [10,20],
+
+      "after14": {
+        "max": [750]
+      },
+
+      "before14": {
+        "m3": [0],
+        "m6": [0],
+        "y2": [750],
+        "y4": [750],
+        "y6": [750],
+        "y9": [750],
+        "y14": [750],
+
+        "byMass": {
+
+          "kg6": {
+            "max": []
+          },
+          "kg9": {
+            "max": []
+          },
+          "kg15": {
+            "max": []
+          },
+          "kg23": {
+            "max": []
+          },
+          "kg30": {
+            "max": []
+          },
+          "kg34": {
+            "max": []
+          }
+        }
+      }
+    },
+    "way_takining_grug": [
+      "перорально",
+      "внутривенно"
+    ],
+    "inputs_per_day": 1,
+    "is_for_3_year_child": false,
+    "is_information": {
+      "isneed": false,
+      "is_VK": 0
+    },
+    "is_comission" : {
+      "isneed": true,
+      "is_VK": 18
+    }
+
+
+  },
+  {
+    "id": 9,
+    "original_title": "Моксифлоксацин",
+    "drugDose":{
+      "perKg": [10,15],
+
+      "after14": {
+        "max": [400]
+      },
+
+      "before14": {
+        "m3": [0],
+        "m6": [0],
+        "y2": [400],
+        "y4": [400],
+        "y6": [400],
+        "y9": [400],
+        "y14": [400],
+
+
+        "byMass": {
+
+          "kg6": {
+            "max": []
+          },
+          "kg9": {
+            "max": []
+          },
+          "kg15": {
+            "max": []
+          },
+          "kg23": {
+            "max": []
+          },
+          "kg30": {
+            "max": []
+          },
+          "kg34": {
+            "max": []
+          }
+        }
+      }
+    },
+    "way_takining_grug": [
+      "перорально",
+      "внутривенно"
+    ],
+    "inputs_per_day": 1,
+    "is_for_3_year_child": false,
+    "is_information": {
+      "isneed": false,
+      "is_VK": 0
+    },
+    "is_comission" : {
+      "isneed": true,
+      "is_VK": 18
+    }
+  },
+  {
+    "id": 10,
+    "original_title": "Протионамид / Этионамид",
+    "drugDose":{
+      "perKg": [10,20],
+
+      "after14": {
+        "max": [500]
+      },
+
+      "before14": {
+        "m3": [0],
+        "m6": [0],
+        "y2": [500],
+        "y4": [500],
+        "y6": [500],
+        "y9": [500],
+        "y14": [500],
+
+        "byMass": {
+
+          "kg6": {
+            "max": [125]
+          },
+          "kg9": {
+            "max": [125]
+          },
+          "kg15": {
+            "max": [250]
+          },
+          "kg23": {
+            "max": [375]
+          },
+          "kg30": {
+            "max": [500]
+          },
+          "kg34": {
+            "max": [500]
+          }
+        }
+      }
+    },
+    "way_takining_grug": [
+      "перорально"
+    ],
+    "inputs_per_day": 1,
+    "is_for_3_year_child": false,
+    "is_information": {
+      "isneed": true,
+      "is_VK": 3
+    },
+    "is_comission" : {
+      "isneed": true,
+      "is_VK": 18
+    }
+
+  },
+
+  {
+    "id": 11,
+    "original_title": "Капреомицин",
+    "drugDose":{
+      "perKg": [15, 20],
+
+      "after14": {
+        "max": [1000]
+      },
+
+      "before14": {
+        "m3": [0],
+        "m6": [0],
+        "y2": [1000],
+        "y4": [1000],
+        "y6": [1000],
+        "y9": [1000],
+        "y14": [1000],
+
+        "byMass": {
+
+          "kg6": {
+            "max": []
+          },
+          "kg9": {
+            "max": []
+          },
+          "kg15": {
+            "max": []
+          },
+          "kg23": {
+            "max": []
+          },
+          "kg30": {
+            "max": []
+          },
+          "kg34": {
+            "max": []
+          }
+        }
+      }
+    },
+    "way_takining_grug": [
+      "внутривенно",
+      "внутримышечно"
+    ],
+    "inputs_per_day": 1,
+    "is_for_3_year_child": false,
+    "is_information": {
+      "isneed": true,
+      "is_VK": 300
+    },
+    "is_comission" : {
+      "isneed": true,
+      "is_VK": 18
+    }
+
+  },
+
+  {
+    "id": 12,
+    "original_title": "Циклосерин",
+    "drugDose":{
+      "perKg": [10,20],
+
+      "after14": {
+        "max": [750]
+      },
+
+      "before14": {
+        "m3": [0],
+        "m6": [0],
+        "y2": [750],
+        "y4": [750],
+        "y6": [750],
+        "y9": [750],
+        "y14": [750],
+
+
+        "byMass": {
+
+          "kg6": {
+            "max": [125]
+          },
+          "kg9": {
+            "max": [125]
+          },
+          "kg15": {
+            "max": [250]
+          },
+          "kg23": {
+            "max": [375]
+          },
+          "kg30": {
+            "max": [500]
+          },
+          "kg34": {
+            "max": [500]
+          }
+        }
+      }
+    },
+    "way_takining_grug": [
+      "перорально"
+    ],
+    "inputs_per_day": 1,
+    "is_for_3_year_child": false,
+    "is_information": {
+      "isneed": true,
+      "is_VK": 3
+    },
+    "is_comission" : {
+      "isneed": false,
+      "is_VK": 0
+    },
+    "age_less_14_cyt": [
+      {
+        "six_year": [125],
+        "none_year": [125],
+        "fif_year": [250],
+        "twethree_year": [375],
+        "therty_year": [500],
+        "thertyfor_year": [500]
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "original_title": "Теризидон",
+    "drugDose":{
+      "perKg": [300],
+
+      "after14": {
+        "max": [750],
+        "less60": 2,
+        "more60": 3
+      },
+
+      "before14": {
+        "m3": [],
+        "m6": [],
+        "y2": [750],
+        "y4": [750],
+        "y6": [750],
+        "y9": [750],
+        "y14": [750],
+
+        "byMass": {
+
+          "kg6": {
+            "max": [125]
+          },
+          "kg9": {
+            "max": [125]
+          },
+          "kg15": {
+            "max": [250]
+          },
+          "kg23": {
+            "max": [375]
+          },
+          "kg30": {
+            "max": [500]
+          },
+          "kg34": {
+            "max": [500]
+          }
+
+        }
+      }
+    },
+    "way_takining_grug": [
+      "перорально"
+    ],
+    "inputs_per_day": 1,
+    "is_for_3_year_child": false,
+    "is_information": {
+      "isneed": true,
+      "is_VK": 14
+    },
+    "is_comission" : {
+      "isneed": false,
+      "is_VK": 0
+    },
+    "age_less_14_cyt": [
+      {
+        "six_year": [125],
+        "none_year": [125],
+        "fif_year": [250],
+        "twethree_year": [375],
+        "therty_year": [500],
+        "thertyfor_year": [500]
+      }
+    ],
+    "age_14_cyt_per_day_count": [
+      {
+        "weight_less_60": 2,
+        "weight_more_60": 3
+      }
+    ]
+  },
+
+  {
+    "id": 14,
+    "original_title": "Аминосалициловая кислота",
+    "drugDose":{
+      "perKg": [150, 200],
+
+      "after14": {
+        "max": [10000, 15000],
+        "less60": 1,
+        "more60": 1
+      },
+
+      "before14": {
+        "m3": [200, 300],
+        "m6": [200, 300],
+        "y2": [200, 300],
+        "y4": [200, 300],
+        "y6": [200],
+        "y9": [200],
+        "y14": [200],
+
+        "byMass": {
+
+          "kg6": {
+            "max": []
+          },
+          "kg9": {
+            "max": []
+          },
+          "kg15": {
+            "max": []
+          },
+          "kg23": {
+            "max": []
+          },
+          "kg30": {
+            "max": []
+          },
+          "kg34": {
+            "max": []
+          }
+
+        }
+      }
+    },
+    "way_takining_grug": [
+      "внутривенно"
+    ],
+    "inputs_per_day": 1,
+    "is_for_3_year_child": false,
+    "is_information": {
+      "isneed": false,
+      "is_VK": 0
+    },
+    "is_comission" : {
+      "isneed": false,
+      "is_VK": 0
+    },
+    "age_less_14_cyt": [
+      {
+        "six_year": [],
+        "none_year": [],
+        "fif_year": [],
+        "twethree_year": [],
+        "therty_year": [],
+        "thertyfor_year": []
+      }
+    ],
+    "age_14_cyt_per_day_count": [
+      {
+        "weight_less_60": 1,
+        "weight_more_60": 1
+      }
+    ]
+  },
+
+  {
+    "id": 15,
+    "unique": true,
+
+    "original_title": "Бедаквилин",
+    "drugDose":{
+      "perKg": [5,10,15],
+
+      "after14": {
+
+        "max": [600]
+      },
+
+      "before14": {
+        "m3": [0],
+        "m6": [0],
+
+
+        "byMass": {
+          "perKg": [],
+
+          "kg6": {
+            "max": []
+          },
+          "kg9": {
+            "max": []
+          },
+          "kg15": {
+            "max": []
+          },
+          "kg23": {
+            "max": []
+          },
+          "kg30": {
+            "max": []
+          },
+          "kg34": {
+            "max": []
+          }
+        }
+      }
+    },
+    "way_takining_grug": [
+      "перорально"
+    ],
+    "inputs_per_day": 1,
+    "is_for_3_year_child": false,
+    "is_information": {
+      "isneed": true,
+      "is_VK": 300
+    },
+    "is_comission" : {
+      "isneed": true,
+      "is_VK": 18
+    }
+
+  },
+  {
+    "id": 16,
+    "unique16": true,
+    "original_title": "Линезолид",
+    "drugDose":{
+      "perKg": [10, 12, 15],
+
+      "after14": {
+        "max": [600]
+      },
+
+      "before14": {
+        "m3": [0],
+        "m6": [0],
+
+
+        "byMass": {
+          "perKg": [],
+
+          "kg6": {
+            "max": []
+          },
+          "kg9": {
+            "max": []
+          },
+          "kg15": {
+            "max": []
+          },
+          "kg23": {
+            "max": []
+          },
+          "kg30": {
+            "max": []
+          },
+          "kg34": {
+            "max": []
+          }
+        }
+      }
+    },
+    "way_takining_grug": [
+      "перорально",
+      "внутривенно"
+    ],
+    "inputs_per_day": 1,
+    "is_for_3_year_child": false,
+    "is_information": {
+      "isneed": true,
+      "is_VK": 300
+    },
+    "is_comission" : {
+      "isneed": true,
+      "is_VK": 18
+    }
+  },
+  {
+    "id": 17,
+    "original_title": "Амоксициллин + клавулановая кислота",
+    "drugDose":{
+      "perKg": [125],
+
+      "after14": {
+        "max": [125]
+      },
+
+      "before14": {
+        "m3": [0],
+        "m6": [0],
+
+
+        "byMass": {
+
+          "kg6": {
+            "max": [25]
+          },
+          "kg9": {
+            "max": [37.5]
+          },
+          "kg15": {
+            "max": [62.5]
+          },
+          "kg23": {
+            "max": [100]
+          },
+          "kg30": {
+            "max": [125]
+          },
+          "kg34": {
+            "max": [125]
+          }
+        }
+      }
+    },
+    "way_takining_grug": [
+      "перорально"
+    ],
+    "inputs_per_day": 1,
+    "is_for_3_year_child": false,
+    "is_information": {
+      "isneed": true,
+      "is_VK": 300
+    },
+    "is_comission" : {
+      "isneed": false,
+      "is_VK": 0
+    }
+  },
+  {
+    "id": 18,
+    "unique18": true,
+    "notes": "только с карбапенемами, 2 раза",
+    "original_title": "Имипенем + циластатин",
+    "drugDose":{
+      "perKg": [],
+
+      "after14": {
+        "max": [1000]
+      },
+
+      "before14": {
+        "m3": [0],
+        "m6": [0],
+
+
+        "byMass": {
+          "perKg": [],
+
+          "kg6": {
+            "max": []
+          },
+          "kg9": {
+            "max": []
+          },
+          "kg15": {
+            "max": []
+          },
+          "kg23": {
+            "max": []
+          },
+          "kg30": {
+            "max": []
+          },
+          "kg34": {
+            "max": []
+          }
+        }
+      }
+    },
+    "way_takining_grug": [
+      "внутривенно"
+    ],
+    "inputs_per_day": 1,
+    "is_for_3_year_child": false,
+    "is_information": {
+      "isneed": true,
+      "is_VK": 300
+    },
+    "is_comission" : {
+      "isneed": false,
+      "is_VK": 0
+    }
+  },
+  {
+    "id": 19,
+    "original_title": "Меропенем",
+    "drugDose":{
+      "perKg": [1000],
+
+      "after14": {
+        "max": [1000]
+      },
+
+      "before14": {
+        "m3": [0],
+        "m6": [0],
+
+
+        "byMass": {
+
+          "kg6": {
+            "max": [25]
+          },
+          "kg9": {
+            "max": [37.5]
+          },
+          "kg15": {
+            "max": [62.5]
+          },
+          "kg23": {
+            "max": [100]
+          },
+          "kg30": {
+            "max": [125]
+          },
+          "kg34": {
+            "max": [125]
+          }
+        }
+      }
+    },
+    "way_takining_grug": [
+      "перорально"
+    ],
+    "inputs_per_day": 1,
+    "is_for_3_year_child": false,
+    "is_information": {
+      "isneed": false,
+      "is_VK": 0
+    },
+    "is_comission" : {
+      "isneed": false,
+      "is_VK": 0
+    }
+  },
+  {
+    "id": 20,
+    "original_title": "Рифапентин",
+    "drugDose":{
+      "perKg": [10],
+
+      "after14": {
+        "max": []
+      },
+
+      "before14": {
+        "m3": [0],
+        "m6": [0],
+
+
+        "byMass": {
+
+          "kg6": {
+            "max": []
+          },
+          "kg9": {
+            "max": []
+          },
+          "kg15": {
+            "max": []
+          },
+          "kg23": {
+            "max": []
+          },
+          "kg30": {
+            "max": []
+          },
+          "kg34": {
+            "max": []
+          }
+        }
+      }
+    },
+    "way_takining_grug": [
+      "перорально"
+    ],
+    "inputs_per_day": 1,
+    "is_for_3_year_child": false,
+    "is_information": {
+      "isneed": false,
+      "is_VK": 0
+    },
+    "is_comission" : {
+      "isneed": false,
+      "is_VK": 0
+    }
+  },
+  {
+    "id": 21,
+    "original_title": "Деламанид",
+    "drugDose":{
+      "perKg": [100],
+
+      "after14": {
+        "max": [200]
+      },
+
+      "before14": {
+        "m3": [0],
+        "m6": [0],
+        "y2": [25],
+        "y4": [25],
+        "y6": [50],
+        "y9": [100],
+
+        "byMass": {
+
+          "kg6": {
+            "max": []
+          },
+          "kg9": {
+            "max": []
+          },
+          "kg15": {
+            "max": []
+          },
+          "kg23": {
+            "max": []
+          },
+          "kg30": {
+            "max": []
+          },
+          "kg34": {
+            "max": []
+          }
+        }
+      }
+    },
+    "way_takining_grug": [
+      "перорально"
+    ],
+    "inputs_per_day": 1,
+    "is_for_3_year_child": false,
+    "is_information": {
+      "isneed": false,
+      "is_VK": 0
+    },
+    "is_comission" : {
+      "isneed": false,
+      "is_VK": 0
+    }
+  }
 ]
