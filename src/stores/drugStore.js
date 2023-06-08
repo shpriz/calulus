@@ -75,7 +75,7 @@ export const useDrugStore = defineStore('drugStore', {
 
 
                 } else {
-                    if (age > 14 && age < 18) {  // Расчет дозы препарата для лиц старше 14 лет || (weight >= 35 && age <= 14)
+                    if (age >= 14 && age < 18) {  // Расчет дозы препарата для лиц старше 14 лет || (weight >= 35 && age <= 14)
 
                         for (let i = 0; i < perkg.length; i++) {
                             w = weight * perkg[i]
@@ -154,6 +154,7 @@ export const useDrugStore = defineStore('drugStore', {
                             state.counts = 'применяется только с карбапенемами! В пересчете на клавулановую кислоту с каждой дозой карбапенемов (2-3) '
                         }
 
+
                         if (index === 18) {
                             if (weight > 30) {
                                 state.counts = state.drugs[index].notes
@@ -228,27 +229,27 @@ export const useDrugStore = defineStore('drugStore', {
                         }
 
 
-                        if (index === 13) {
-
-                            if (age > 7 && age <= 14) {
-                                for (let i = 0; i < maxDoseBefore14.y2.length; i++) {
-                                    w = weight * perkg[i]
-
-
-                                    if (w < maxDoseBefore14.y2.max) {
-                                        state.maximized = false
-                                        dose.push(w)
-                                    } else {
-                                        state.maximized = true
-                                        dose.push(maxDoseBefore14.y2[0])
-
-                                    }
-
-                                }
-                                state.counts = state.drugs[index].drugDose.after14.less60
-
-                            }
-                        }
+                        // if (index === 13) {
+                        //
+                        //     if (age > 7 && age <= 14) {
+                        //         for (let i = 0; i < maxDoseBefore14.y2.length; i++) {
+                        //             w = weight * perkg[i]
+                        //
+                        //
+                        //             if (w < maxDoseBefore14.y2.max) {
+                        //                 state.maximized = false
+                        //                 dose.push(w)
+                        //             } else {
+                        //                 state.maximized = true
+                        //                 dose.push(maxDoseBefore14.y2[0])
+                        //
+                        //             }
+                        //
+                        //         }
+                        //         state.counts = state.drugs[index].drugDose.after14.less60
+                        //
+                        //     }
+                        // }
 
                         if (index === 14) { // "Аминосалициловая кислота"
 
@@ -373,16 +374,17 @@ export const useDrugStore = defineStore('drugStore', {
                             }
 
                         }
-                        if (index === 17 || index === 19) {
+                        if (index === 13 || index === 17 || index === 19) {
                             dose.length = 0;
+
                             if (index === 17) {
                                 state.counts = '1 раз в неделю. В пересчете на клавулановую кислоту с каждой дозой карбапинемов (2-3 р/д)'
                             }
-                            else
-                                state.counts = '3 раза в неделю. В пересчете на клавулановую кислоту с каждой дозой карбапинемов (2-3 р/д)'
+                            // else {
+                            //     state.counts = '3 раза в неделю. В пересчете на клавулановую кислоту с каждой дозой карбапинемов (2-3 р/д)'
+                            // }
 
-
-                            state.maximized = false
+                            // state.maximized = false
                             if (weight <= 6) {
                                 for (let i = 0; i < maxbyMass.kg6.max.length; i++) {
                                     w = weight * perkg[i]
@@ -472,6 +474,32 @@ export const useDrugStore = defineStore('drugStore', {
 
                                 }
                             }
+
+                            if (weight > 34){
+                                // dose.length=0;
+                                // for (let i = 0; i < perkg.length; i++) {
+                                //     w = weight * perkg[i]
+                                //     if (maxDoseAfter14.length > 1) {
+                                        // if (w < maxDoseAfter14[i]) {
+                                        //     state.maximized = false
+                                        //     dose.push(w)
+                                        // } else {
+                                        //     state.maximized = true
+                                            state.enabled = true
+                                            dose.push(maxDoseAfter14[0])
+                                        // }
+                                    // } else {
+                                        // if (w < maxDoseAfter14[0]) {
+                                        //     state.maximized = false
+                                        //     dose.push(w)
+                                        // } else {
+                                        //     state.maximized = true
+                                        //         state.enabled = true
+                                        //     dose.push(maxDoseAfter14[0])
+                                        }
+                                    // }
+                                // }
+                            // }
 
 
                         }
