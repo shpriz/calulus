@@ -682,9 +682,12 @@ export const useDrugStore = defineStore('drugStore', {
                             state.counts = '2 -3 раза в день'
                             break;
                         case 21:
-
+                            ismaximumDose=false
                             if (age >= 12) {
-                                if (weight > 35) dose.push(100)
+                                if (weight > 35) {
+                                    ismaximumDose=true
+                                    dose.push(100)
+                                }
                                 else dose.push('недосточный вес')
                             }
                             break;
