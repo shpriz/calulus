@@ -58,6 +58,7 @@ export const useDrugStore = defineStore('drugStore', {
             let maxDoseAfter14 = 0
             let maxDoseBefore14 = 0
             let maxbyMass = 0
+            let drug = ''
 
             if ((age !== 0 || monthage !== 0) && weight !== 0 && index !== 0) {
                 state.counts = 1
@@ -74,8 +75,7 @@ export const useDrugStore = defineStore('drugStore', {
                     // Расчет дозировок для взрослых
 
 
-                } else {
-                    if (age >= 14 && age < 18) {  // Расчет дозы препарата для лиц старше 14 лет || (weight >= 35 && age <= 14)
+                } else if (age >= 14 && age < 18) {  // Расчет дозы препарата для лиц старше 14 лет || (weight >= 35 && age <= 14)
 
                         for (let i = 0; i < perkg.length; i++) {
                             w = weight * perkg[i]
@@ -374,7 +374,7 @@ export const useDrugStore = defineStore('drugStore', {
                             }
 
                         }
-                        if (index === 13 || index === 17 || index === 19) {
+                        if (index === 3 || index === 13 || index === 17 || index === 19) {
                             dose.length = 0;
 
                             if (index === 17) {
@@ -391,6 +391,7 @@ export const useDrugStore = defineStore('drugStore', {
 
                                     if (w < maxbyMass.kg6.max[i]) {
                                         state.maximized = false
+                                        state.counts =
                                         dose.push(w)
                                     } else {
                                         state.maximized = true
@@ -587,7 +588,7 @@ export const useDrugStore = defineStore('drugStore', {
                     return dose
 
 
-                }
+
             } else {
 
                 state.counts = 0

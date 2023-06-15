@@ -62,9 +62,9 @@
   
   
   
-<!--  {{ store.agePerson }} - -->
-<!--        {{ store.getDose }} - <br>-->
-<!--        {{ store.getDrugById(store.selectedDrugId) }} - <br>-->
+  {{ store.agePerson }} -
+        {{ store.getDose }} - <br>
+        {{ store.getDrugById(store.selectedDrugId) }} - <br>
   </div>
 </template>
 
@@ -73,10 +73,9 @@
    imports
 */
 
+// import { useDrugStore } from '@/stores/drugStore'
 import { useDrugStore } from '@/stores/drugStore_orig'
 import {ref} from 'vue'
-
-
 
 const store = useDrugStore()
 

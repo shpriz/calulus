@@ -46,19 +46,20 @@ import vWeightInput from '@/components/WeightInput.vue'
 import vAgeInput from '@/components/AgeInput.vue'
 import vSelectInput from '@/components/SelectInput.vue'
 import vOutputItem from '@/components/OutputItem.vue'
-import {ref} from 'vue'
-import {useDrugStore} from '@/stores/drugStore'
-
-const store = useDrugStore()
-
-
-const selected = ref([])
-const ageInput = ref('')
-const weightInput = ref(0)
-
-const getDose = (w, m, s) => {
-  store
-}
+// import {ref} from 'vue'
+// // import {useDrugStore} from '@/stores/drugStore'
+// import {useDrugStore} from '@/stores/drugStore_orig'
+//
+// const store = useDrugStore()
+//
+//
+// const selected = ref([])
+// const ageInput = ref('')
+// const weightInput = ref(0)
+//
+// const getDose = (w, m, s) => {
+//   store
+// }
 </script>
 
 <style lang="scss">

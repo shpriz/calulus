@@ -1,22 +1,166 @@
-import { defineStore } from "pinia";
+import {defineStore} from "pinia";
 
 // function _calcDose (age, weight ) {
 //     return [age * weight ]
 // }
 
+var ismaximumDose = false
+
+function getDose(weight, drug) {
+
+    let doem = []
+    let w = 0
+
+    for (let i = 0; i < drug['drugDose']['perKg'].length; i++) {
+        ismaximumDose = false
+        w = weight * drug['drugDose']['perKg'][i]
+
+        if (w <= drug['drugDose']['after14']['max'][0])
+            doem.push(w)
+
+        else {
+            doem.push(drug['drugDose']['after14']['max'][0])
+            ismaximumDose = true
+        }
+    }
+
+
+    return doem
+}
+
+function getDosearray(weight, massiv, drug) {
+
+    let doem = []
+    let w = 0
+    ismaximumDose = false
+
+    for (let i = 0; i < massiv.length; i++) {
+        w = weight * massiv[i]
+
+        if (w <= drug['drugDose']['after14']['max'][0])
+            doem.push(w)
+        else {
+            doem.push(drug['drugDose']['after14']['max'][0])
+            ismaximumDose = true
+        }
+    }
+
+
+    return doem
+}
+
+function getDoseByMass2(weight, drug) {
+
+    let doses = []
+    let w = 0
+
+    for (let i = 0; i < drug['drugDose']['perKg'].length; i++) {
+
+        w = weight * drug['drugDose']['perKg'][i]
+
+        if (weight < 5) doses.push("вес ребенка менее 5 кг")
+
+        else if (weight >= 5 && weight <= 6) {
+            if (w < drug['drugDose']['before14']['byMass']["0"]["max"]) {
+                doses.push(w)
+                ismaximumDose = false
+            } else {
+                doses = drug['drugDose']['before14']['byMass']["0"]["max"]
+                ismaximumDose = true
+            }
+        } else if (weight >= 7 && weight <= 9) {
+            if (w < drug['drugDose']['before14']['byMass']["1"]["max"]) {
+                doses.push(w)
+                ismaximumDose = false
+            } else {
+                doses = drug['drugDose']['before14']['byMass']["1"]["max"]
+                ismaximumDose = true
+            }
+        } else if (weight >= 10 && weight <= 15) {
+            if (w < drug['drugDose']['before14']['byMass']["2"]["max"]) {
+                doses.push(w)
+                ismaximumDose = false
+            } else {
+                doses = drug['drugDose']['before14']['byMass']["2"]["max"]
+                ismaximumDose = true
+            }
+        } else if (weight >= 16 && weight <= 23) {
+            if (w < drug['drugDose']['before14']['byMass']["3"]["max"]) {
+                doses.push(w)
+                ismaximumDose = false
+            } else {
+                doses = drug['drugDose']['before14']['byMass']["3"]["max"]
+                ismaximumDose = true
+            }
+        } else if (weight >= 24 && weight <= 30) {
+            if (w < drug['drugDose']['before14']['byMass']["4"]["max"]) {
+                doses.push(w)
+                ismaximumDose = false
+            } else {
+                doses = drug['drugDose']['before14']['byMass']["4"]["max"]
+                ismaximumDose = true
+            }
+        } else if (weight >= 31 && weight <= 34) {
+            if (w < drug['drugDose']['before14']['byMass']["5"]["max"]) {
+                doses.push(w)
+                ismaximumDose = false
+            } else {
+                doses = drug['drugDose']['before14']['byMass']["5"]["max"]
+                ismaximumDose = true
+            }
+        } else {
+            doses = drug['drugDose']['perKg']
+        }
+    }
+    return doses
+}
+
+
+function getDoseByMass(weight, drug) {
+
+    let doses = []
+
+    if (weight < 5) doses.push("вес ребенка менее 5 кг")
+    else if (weight >= 5 && weight <= 6) doses = drug['drugDose']['before14']['byMass']["0"]["max"]
+    else if (weight >= 7 && weight <= 9) doses = drug['drugDose']['before14']['byMass']["1"]["max"]
+    else if (weight >= 10 && weight <= 15) doses = drug['drugDose']['before14']['byMass']["2"]["max"]
+    else if (weight >= 16 && weight <= 23) doses = drug['drugDose']['before14']['byMass']["3"]["max"]
+    else if (weight >= 24 && weight <= 30) doses = drug['drugDose']['before14']['byMass']["4"]["max"]
+    else if (weight >= 31 && weight <= 34) doses = drug['drugDose']['before14']['byMass']["5"]["max"]
+    else {
+        doses = drug['drugDose']['perKg']
+    }
+    return doses
+}
+
+
+function getDoseByMassfrom35to60(weight) {
+    let dose = []
+
+
+    return dose;
+}
+
+function getDoseByMassmore60(weight) {
+    let dose = []
+
+
+    return dose;
+}
 
 
 export const useDrugStore = defineStore('drugStore', {
     state: () => {
         return {
             weightPerson: 0,
-            agePerson: 0, 
+            agePerson: 0,
             agemonthPerson: 0,
-            selectedDrugId:0,
+            selectedDrugId: 0,
             drugs: [],
-            dosePerKG:[],
-            dose:['неприменимо'], 
+            dosePerKG: [],
+            dose: [],
             maximized: false,
+            enabled: false,
             counts: 1
         }
     },
@@ -26,15 +170,15 @@ export const useDrugStore = defineStore('drugStore', {
             this.drugs = (await import('@/data/drugs.json')).default;
         },
 
-        getWeight(amount){
+        getWeight(amount) {
             this.weightPerson = amount
         },
 
-        getAge(amount){
+        getAge(amount) {
             this.agePerson = amount
         },
 
-        getmonthAge(amount){
+        getmonthAge(amount) {
             this.agemonthPerson = amount
         },
 
@@ -43,7 +187,7 @@ export const useDrugStore = defineStore('drugStore', {
             this.selectedDrugId = amount
         }
 
-       
+
     },
 
     getters: {
@@ -53,690 +197,550 @@ export const useDrugStore = defineStore('drugStore', {
             let weight = state.weightPerson
             let index = state.selectedDrugId
             let dose = []
-            let perkg = []
-          
-            if  ((age !== 0 | monthage !== 0) & weight !== 0 && index !== 0) {
-                state.counts = 1
+            // let perkg = []
+            let w = 0
+            // let maxDoseAfter14 = 0
+            // let maxDoseBefore14 = 0
+            // let maxbyMass = 0
+            let drug = ''
+
+            if ((age !== 0 || monthage !== 0) && weight !== 0 && index !== 0) {
+
+                drug = state.drugs[index]
+                // perkg = state.drugs[index].drugDose.perKg
+                // maxDoseAfter14 = state.drugs[index].drugDose.after14.max
+                //
+                // maxDoseBefore14 = state.drugs[index].drugDose.before14
+                // maxbyMass = maxDoseBefore14.byMass
 
 
-                perkg = state.drugs[index].drugDose.perKg
-                let maxDoseAfter14 = state.drugs[index].drugDose.after14.max
+                // for (let i = 0; i < perkg.length; i++) {
+                //     w = weight * perkg[i]
+                //
+                //     if (maxDoseAfter14.length > 1) {
+                //         if (w <= maxDoseAfter14[i]) {
+                //             state.maximized = false
+                //             dose.push(w)
+                //         } else {
+                //             state.maximized = true
+                //             dose.push(maxDoseAfter14[i])
+                //         }
+                //     } else {
+                //         if (w <= maxDoseAfter14[0]) {
+                //             state.maximized = false
+                //             dose.push(w)
+                //         } else {
+                //             state.maximized = true
+                //             dose.push(maxDoseAfter14[0])
+                //         }
+                //     }
+                // }
 
-                
 
-                if (age > 14 || (weight >= 35 && age < 14) ) {  // Расчет дозы препарата для лиц старше 14 лет
-                    state.counts = 1
+                if (age < 14) { // less 14
 
-                    for (let i = 0; i < perkg.length; i++){
-                        if (weight*perkg[i] < maxDoseAfter14[0] ) {
-                            state.maximized = false
-                            let w =  weight*perkg[i]
-                            if (w !== 0 || w !== null){
-                                dose.length = 0
-                                dose.push(w)
+                    switch (index) {
+                        case 0:
+
+                            break;
+
+
+                        case 16:
+                        case 11:
+                        case 9:
+                        case 8:
+                        case 7:
+                        case 6:
+                        case 2:
+                        case 1:
+
+                            state.counts = drug['inputs_per_day']
+
+                            for (let i = 0; i < drug['drugDose']['perKg'].length; i++) {
+                                w = weight * drug['drugDose']['perKg'][i]
+
+                                if (w < drug['drugDose']['after14']['max']) {
+                                    ismaximumDose = false
+                                    dose.push(w)
+                                } else {
+                                    ismaximumDose = true
+                                    dose.push(drug['drugDose']['after14']['max'][0])
+                                }
                             }
-                               
-                        }
-                            
-                        else {
-                            state.maximized = true
-                            dose.length = 0
-                            dose.push(maxDoseAfter14[0])
-                        }
 
-                    }
+                            break;
 
-                    if (index === 13 && age > 14) {
-                        if (weight <= 60) { state.counts = state.drugs[index].drugDose.after14.less60 }
-                        else {state.counts = state.drugs[index].drugDose.after14.more60}
-                    }
-                    else {
-                        state.counts = state.drugs[index].drugDose.after14.less60
-                    }
 
-                    if (index === 15 ) {
-                        if (age < 6 ) state.counts = 0
-                    }
+                        case 3: //Пиразинамид
 
-                    if (index === 18 ) {
-                        if (weight > 30) {
-                            state.counts = state.drugs[index].notes
-                            dose.length = 0
-                            dose.push('1000 + 1000')
-                        }
-                    }
+                            if (age > 3) {
+                                ismaximumDose = false
+                                if (weight < 35) {
+                                    dose = getDoseByMass(weight, drug)
 
-                    if (index === 19 ) {
-                        state.counts = 'применяетс я только с амоксициллин + клавуланововая кислота ' + 3 + ' '
-                    }
-                    
-                    if (index === 21 ) {
-                        if (age > 14 && age < 17 ) {
-                            // dose.push(100)
+                                } else if (weight >= 35) {
+                                    dose = getDose(weight, drug)
+                                }
+                            } else {
+                                dose = getDosearray(weight, [30, 40], drug)
+
+                                ismaximumDose = true
+                            }
+                            break;
+
+                        case 4: // Этамбутол
+                            if (age > 13) {
+
+                                ismaximumDose = false
+
+                                if (weight < 35) {
+                                    dose = getDoseByMass(weight, drug)
+
+                                } else if (weight >= 35) {
+                                    dose = getDose(weight, drug)
+                                }
+                            } else {
+                                dose = getDosearray(weight, [15, 25], drug)
+
+                                ismaximumDose = true
+                            }
+                            break;
+
+
+                        case 5:
+
+                            ismaximumDose = false
+
+                            if (age <= 2 || (age < 1 && monthage <= 11)) {
+                                ismaximumDose = true
+                                if (monthage < 3) dose.push(weight * 10)
+                                else if (monthage >= 3 && monthage < 6) dose.push(weight * 10)
+                                else if (monthage >= 6 && age <= 2) {
+
+                                    dose.push(weight * 20)
+
+                                }
+
+
+                            } else if (age > 2) {
+                                w = weight * 20
+
+                                if (age >= 3 && age <= 4) {
+                                    ismaximumDose = false;
+                                    if (w < 300) {
+                                        dose.push(w);
+                                    } else {
+                                        dose.push(300);
+                                        ismaximumDose = true;
+                                    }
+                                } else if (age >= 5 && age <= 6) {
+                                    ismaximumDose = false;
+                                    if (w < 350) {
+                                        dose.push(w);
+                                    } else {
+                                        dose.push(350);
+                                        ismaximumDose = true;
+                                    }
+                                } else if (age >= 7 && age < 9) {
+                                    ismaximumDose = false;
+                                    if (w < 400) {
+                                        dose.push(w);
+                                    } else {
+                                        dose.push(400);
+                                        ismaximumDose = true;
+                                    }
+                                } else if (age >= 9 && age <= 14) {
+                                    if (w < 500) {
+                                        dose.push(w);
+                                    } else {
+                                        dose.push(500);
+                                        ismaximumDose = true;
+                                    }
+                                }
+                            }
+
+
+                            break;
+
+
+                        case 10:
+                            ismaximumDose = false
+                            let ppp = getDoseByMass(weight, drug)
+                            if (weight < 35) {
+                                dose = ppp
+                                ismaximumDose = true
+                            } else if (weight >= 35) {
+                                ismaximumDose = true
+                                dose = getDose(weight, drug)
+                            }
+                            // }
+                            // else {
+                            //     dose = getDosearray(weight, [30, 40], drug)
+                            //
+                            //     ismaximumDose = true
+                            // }
+                            break;
+
+                        case 12:
+
+                            if (age > 3 || weight > 25) {
+                                ismaximumDose = false
+                                if (weight < 34) {
+                                    dose = getDoseByMass2(weight, drug)
+
+                                } else if (weight >= 34) {
+                                    dose = getDose(weight, drug)
+                                }
+                            } else {
+                                dose = getDosearray(weight, [15, 20], drug)
+
+                                ismaximumDose = true
+
+                            }
+
+
+                            break;
+
+                        case 13:
+
+                            ismaximumDose = false
+                            if (weight < 35) {
+                                dose = getDoseByMass(weight, drug)
+                                ismaximumDose = true
+
+                            } else {
+                                dose = getDose(weight, drug)
+                            }
+
+                            break;
+
+                        case 14:
+                            if (age < 1 && monthage <= 11) {
+                                dose = getDosearray(weight, [200, 300], drug)
+                            } else {
+                                dose = getDosearray(weight, [200], drug)
+                            }
+                            break;
+
+                        case 15:
+                            if (age < 6) dose.push('неприменимо до 6 лет')
+                            else if (age >= 6 && age < 12) {
+                                if (weight >= 15 && weight <= 30) {
+                                    state.counts = 'ежедневно в первые 2 недели, затем 100 мг 3 раза в неделю (с 3 недели перерыв между приемом препарата не менее 48 часов)'
+                                    dose.push(200)
+                                } else if (weight < 15) {
+                                    dose.push('недостаточный вес')
+                                    state.counts = ''
+                                } else {
+                                    state.counts = 'ежедневно в первые 2 недели, затем 100 мг 3 раза в неделю(с 3 недели перерыв между приемом препарата не менее 48 часов)'
+                                    dose.push(400)
+                                }
+                            } else {
+                                state.counts = 'ежедневно в первые 2 недели, затем 100 мг 3 раза в неделю(с 3 недели перерыв между приемом препарата не менее 48 часов)'
+                                dose.push(400)
+                            }
+                            break;
+
+                        case 17:
+                            dose.push('неприменимо до 14 лет')
+                            state.counts = ''
+                            break;
+
+                        case 18:
+                            ismaximumDose = false
+                            dose.push('неприменимо до 14 лет')
+                            state.counts = ''
+
+                            break;
+
+                        case 19:
+                            dose.push('неприменимо до 14 лет')
+                            break;
+
+                        case 20:
+
+                            ismaximumDose = false
+                            if (age > 12) {
+                                dose.push(10 * weight)
+                                state.counts = '2 -3 раза в день'
+                            }
+                            else {
+                                dose.push('неприменимо до 12 лет')
+                                state.counts = ''
+                            }
+
+                            break;
+
+                        case 21:
                             state.counts = 2
+                            ismaximumDose = true
+                            if (age < 3) {
+                                dose.push('неприменимо до 3х лет')
+                                state.counts = ''
+                            } else if (age >= 3 && age <= 5) {
+                                dose.push(25)
+
+                            } else if (age > 5 && age <= 11) {
+                                if (weight >= 25 && weight <= 34) {
+                                    dose.push(50)
+                                } else {
+                                    dose.length = 0;
+                                    dose.push('недостаточный возраст')
+                                }
+
+                            } else if (age >= 12) {
+                                if (weight > 35) dose.push(100)
+                                else dose.push('недосточный вес')
+                            }
+
+
+                            break;
+
+                    }
+
+
+                    // if (dose.length === 3) {
+                    //     dose.splice(1, 0, ' - ')
+                    //     dose.splice(3, 0, ' - ')
+                    // }
+                    if (dose.length === 2) {
+                        dose.splice(1, 0, ' - ')
+
+                        if (dose[0] === dose[2]) {
+                            dose.splice(1, 3)
                         }
                     }
 
-                }
-                else {  // расчет дозы препарата для лиц младше 14 лет
-                    state.counts = 1
+                    state.maximized = ismaximumDose
+                    return dose
 
-                    dose = []
-                    let maxDoseBefore14 = state.drugs[index].drugDose.before14
-                    let maxbyMass = maxDoseBefore14.byMass
-                    state.maximized = false
-                    let w = 0
-                
+                } else if (age >= 14 && age <= 17) { // from 14 to 17
 
-                    
+                    switch (index) {
 
-                    state.counts = 1
+                        case 0:
 
-                    switch(index){
+
+                            break;
+
                         case 1:
                         case 2:
+                            dose = getDose(weight, drug)
+
+                            break;
+
+                        case 3:
+
+                            if (age > 14 && weight >= 34) {
+                                dose = getDosearray(weight, [20, 30], drug)
+                                // dose.push(weight * 30)
+
+                            } else if (age < 15 && weight <= 34) {
+                                dose = getDosearray(weight, [30, 40], drug)
+                            } else {
+                                dose = getDosearray(weight, [20, 40], drug)
+
+                            }
+
+
+                            break;
+                        case 4:
+                            if (age > 14 && weight >= 34) {
+                                dose = getDosearray(weight, [10, 20], drug)
+                                // dose.push(weight * 30)
+
+                            } else if (age < 15 && weight <= 34) {
+                                dose = getDosearray(weight, [15, 25], drug)
+                            } else {
+                                dose = getDosearray(weight, [15, 25], drug)
+
+                            }
+
+                            break;
+
+
                         case 5:
+                            dose = getDose(weight, drug)
+
+                            break;
+
+
                         case 6:
                         case 7:
                         case 8:
                         case 9:
-                        case 11:
-                        case 13:
-                        case 14:
-                        case 15:
-                        case 16:
-                        case 18:
-                        case 19:
-                        case 20:
-                        case 21:
-                            if (age < 1) {
-                                if (monthage < 3){
-                                    for (let i = 0; i < maxDoseBefore14.m3.length; i++){
-                                        w = weight * perkg[i]
-                                        if (w < maxDoseBefore14.m3.max ) {
-                                            state.maximized = false
-                                            dose.push(w) 
-                                        }
-                                        else {
-                                            state.maximized = true
-                                            dose.push(maxDoseBefore14.m3[i])
-                                        }
-
-                                    }
-                                }
-                                else {
-                                    if (monthage >= 3 && monthage < 6) {
-                                        for (let i = 0; i < maxDoseBefore14.m6.length; i++){
-                                            w = weight * perkg[i]
-                                            if (w < maxDoseBefore14.m6[i] ) {
-                                                state.maximized = false
-                                                dose.push(w)
-                                                } 
-                                            else {
-                                                state.maximized = true
-                                                dose.push(maxDoseBefore14.m6[i])
-                                            }
-                                        }
-
-                                    }
-                                }
-                            } // end age < 1
-
-
-
-                            else {
-
-                                if (monthage > 6 && age < 2){
-                                    
-                                    for (let i = 0; i < maxDoseBefore14.y2.length; i++){
-                                        w = weight * perkg[i]
-                                        if (w < maxDoseBefore14.y2[i]) {
-                                            state.maximized = false
-                                            dose.push(w)
-                                            } 
-                                        else {
-                                            state.maximized = true
-                                            dose.push(maxDoseBefore14.y2[i])
-                                        }
-                                    }
-                                }
-
-                                if (monthage >= 2 && age < 4){
-                                    
-                                    for (let i = 0; i < maxDoseBefore14.y4.length; i++){
-                                        w = weight * perkg[i]
-                                        if (w < maxDoseBefore14.y4[i]) {
-                                            state.maximized = false
-                                            dose.push(w)
-                                            } 
-                                        else {
-                                            state.maximized = true
-                                            dose.push(maxDoseBefore14.y4[i])
-                                        }
-                                    }
-                                }
-
-                                if (monthage >= 4 && age < 6){
-                                    
-                                    for (let i = 0; i < maxDoseBefore14.y6.length; i++){
-                                        w = weight * perkg[i]
-                                        if (w < maxDoseBefore14.y6[i]) {
-                                            state.maximized = false
-                                            dose.push(w)
-                                            } 
-                                        else {
-                                            state.maximized = true
-                                            dose.push(maxDoseBefore16.y6[i])
-                                        }
-                                    }
-                                }
-
-
-                                if (monthage >= 6 && age < 9){
-                                    
-                                    for (let i = 0; i < maxDoseBefore14.y9.length; i++){
-                                        w = weight * perkg[i]
-                                        if (w < maxDoseBefore14.y9[i]) {
-                                            state.maximized = false
-                                            dose.push(w)
-                                            } 
-                                        else {
-                                            state.maximized = true
-                                            dose.push(maxDoseBefore16.y9[i])
-                                        }
-                                    }
-                                }
-
-                                if (monthage >= 9 && age <= 14){
-                                    
-                                    for (let i = 0; i < maxDoseBefore14.y14.length; i++){
-                                        w = weight * perkg[i]
-                                        if (w < maxDoseBefore14.y14[i]) {
-                                            state.maximized = false
-                                            dose.push(w)
-                                            } 
-                                        else {
-                                            state.maximized = true
-                                            dose.push(maxDoseBefore16.y14[i])
-                                        }
-                                    }
-                                }
-
-                            }
-
-
-                            
-                        break;
-                        
-                       
-            
-
-                        case 3:
-                        case 4:
                         case 10:
-                        case 12:
-                        case 17:
-                        
-                        state.counts = 1
-                        if (weight <= 6){
-                            for (let i = 0; i < maxbyMass.kg6.max.length; i++){
-                                w = weight * perkg[i]
-                               
-                                if ( w < maxbyMass.kg6.max[i]) {
-                                    state.maximized = false
-                                    dose.push(w)
-                                }
-                                else {
-                                    state.maximized = true
-                                    dose.push(maxbyMass.kg6.max[i])
-                                }
-                               
-                            }
-                        } 
+                        case 11:
+                        case 16:
+                            state.counts = drug['inputs_per_day']
 
-                        if (weight > 6 && weight <= 9) {
-                            for (let i = 0; i < maxbyMass.kg9.max.length; i++){
-                                w = weight * perkg[i]
-                            
-                                if ( w < maxbyMass.kg9.max[i]) {
-                                    state.maximized = false
-                                    dose.push(w)
-                                }
-                                else {
-                                    state.maximized = true
-                                    dose.push(maxbyMass.kg9.max[i])
-                                }
-                            
-                            }
-                        }
-                        
-                        if (weight > 9 && weight <= 15) {
-                            for (let i = 0; i < maxbyMass.kg15.max.length; i++){
-                                w = weight * perkg[i]
-                               
-                                if ( w < maxbyMass.kg15.max[i]) {
-                                    state.maximized = false
-                                    dose.push(w)
-                                }
-                                else {
-                                    state.maximized = true
-                                    dose.push(maxbyMass.kg15.max[i])
-                                }
-                               
-                            }
-                        }
+                            for (let i = 0; i < drug['drugDose']['perKg'].length; i++) {
+                                w = weight * drug['drugDose']['perKg'][i]
 
-
-                        if (weight > 15 && weight <= 23) {
-                            for (let i = 0; i < maxbyMass.kg23.max.length; i++){
-                                w = weight * perkg[i]
-                               
-                                if ( w < maxbyMass.kg23.max[i]) {
-                                    state.maximized = false
+                                if (w < drug['drugDose']['after14']['max']) {
+                                    ismaximumDose = false
                                     dose.push(w)
+                                } else {
+                                    ismaximumDose = true
+                                    dose.push(drug['drugDose']['after14']['max'][0])
                                 }
-                                else {
-                                    state.maximized = true
-                                    dose.push(maxbyMass.kg23.max[i])
-                                }
-                               
                             }
-                        }
-                        if (weight > 23 && weight <= 30) {
-                            for (let i = 0; i < maxbyMass.kg30.max.length; i++){
-                                w = weight * perkg[i]
-                               
-                                if ( w < maxbyMass.kg30.max[i]) {
-                                    state.maximized = false
-                                    dose.push(w)
-                                }
-                                else {
-                                    state.maximized = true
-                                    dose.push(maxbyMass.kg30.max[i])
-                                }
-                               
-                            }
-                        }
-                        if (weight > 30 && weight <= 34) {
-                            for (let i = 0; i < maxbyMass.kg34.max.length; i++){
-                                w = weight * perkg[i]
-                               
-                                if ( w < maxbyMass.kg34.max[i]) {
-                                    state.maximized = false
-                                    dose.push(w)
-                                }
-                                else {
-                                    state.maximized = true
-                                    dose.push(maxbyMass.kg34.max[i])
-                                }
-                               
-                            }
-                        }
 
-                        break;
-
-                        default:
-                               dose.push(0)
                             break;
-                        // default:
-                        //     for (let i = 0; i < perkg.length; i++){
-                        //         if (weight*perkg[i] < maxDoseAfter14[0] ) {
-                        //             state.maximized = false
-                        //             let w =  weight*perkg[i]
-                        //             if (w !== 0 | w !== null){
-                        //                 dose.length = 0
-                        //                 dose.push(w)
-                        //             }
-                                       
-                        //         }
-                                    
-                        //         else {
-                        //             state.maximized = true
-                        //             dose.length = 0
-                        //             dose.push(maxDoseAfter14[0])
-                        //         }
 
-                        // break
+                        case 12: // Циклосерин
+
+                            if (weight >= 34) dose = getDose(weight, drug)
+                            else if (age < 15 && weight <= 34) {
+                                dose = getDosearray(weight, [15, 20], drug)
+                            } else {
+                                dose = getDosearray(weight, [15, 20], drug)
+
+                            }
+
+
+                            break;
+                        case 13:
+                            ismaximumDose = true
+                            dose.push(300)
+
+                            if (weight <= 60) {
+                                state.counts = state.drugs[index].drugDose.after14.less60
+                            } else {
+                                state.counts = state.drugs[index].drugDose.after14.more60
+                            }
+
+                            break;
+                        case 14:
+                            dose.push(10000)
+                            dose.push(15000)
+                            ismaximumDose = true
+
+                            break;
+                        case 15:
+                            if (weight >= 15 && weight <= 30) {
+                                state.counts = 'ежедневно в первые 2 недели, затем 100 мг 3 раза в неделю (с 3 недели перерыв между приемом препарата не менее 48 часов)'
+                                dose.push(200)
+                            } else if (weight < 15) {
+                                dose.push('недостаточный вес')
+                                state.counts = ''
+                            } else {
+                                state.counts = 'ежедневно в первые 2 недели, затем 100 мг 3 раза в неделю(с 3 недели перерыв между приемом препарата не менее 48 часов)'
+                                dose.push(400)
+                            }
+
+
+                            break;
+
+                        case 17:
+                            state.counts = 'В пересчете на клавулановую кислоту с каждой дозой карбапинемов (2-3 р/д)'
+                            ismaximumDose = true
+                            if (age >= 14 && weight > 23)
+                                dose.push(125)
+                            else {
+                                dose = getDoseByMass(weight, drug)
+                            }
+
+                            break;
+                        case 18:
+
+                            if (age >= 14) {
+                                if (weight >= 30) {
+                                    dose.push('1000 + 1000 ')
+                                    state.counts = '2 р/д в сочетнании с амоксициллин + клавулановая кислота в дозе 25-125 мг в пересчете на клавулановую кислоту с каждой дозой карбапенемов'
+                                    ismaximumDose = true
+
+                                } else {
+                                    dose.push('недостаточный вес')
+                                }
+                            } else {
+                                dose.push('неприменимо до 14 лет')
+                                state.counts = ''
+                            }
+
+                            break;
+                        case 19:
+                            if (age >= 14) {
+                                if (weight >= 30) {
+                                    dose.push('100 + 1000 ')
+                                    state.counts = 'каждые 8 - 12 часов'
+                                    ismaximumDose = true
+
+                                } else {
+                                    dose.push('недостаточный вес')
+                                }
+                            } else {
+                                dose.push('неприменимо до 14 лет')
+                                state.counts = ''
+                            }
+
+                            break;
+
+                        case 20:
+                            ismaximumDose = false
+                            dose.push(10 * weight)
+                            state.counts = '2 -3 раза в день'
+                            break;
+                        case 21:
+
+                            if (age >= 12) {
+                                if (weight > 35) dose.push(100)
+                                else dose.push('недосточный вес')
+                            }
+                            break;
+
+
                     }
 
 
-                        
-                    // if (index === 5 ) {
-                    //     state.counts = 1
+                    if (dose.length === 2) {
+                        dose.splice(1, 0, ' - ')
 
-                    //     if (age === 0 & monthage <= 11 ) {
-                    //         for (let i = 0; i < perkg.length; i++){
-                    //             w =  weight * perkg[i]
-                                
-                    //             if ( w > maxDoseBefore14.m3[0]){
-                    //                 state.maximized = true
-                    //                 dose.push(maxDoseBefore14.m3[0])
-                    //             }
-                    //             else {
-                    //                 state.maximized = false
-                    //                 if (w !== 0 | w !== null){
-                    //                     dose.push(w)
-                    //                 }
-                    //             }
-                    //         }
-
-
-                    //         if (monthage < 3 ) {
-                    //             dose.push(maxDoseBefore14.m3)
-                    //             state.maximized = true
-
-                    //             }     
-                            
-                    //         if (monthage >= 3 & monthage < 6 ){
-                    //             dose.push(maxDoseBefore14.m6)
-                    //             state.maximized = true
-
-                    //         }
-
-                    //         if (monthage >= 6 & monthage <=11) {
-                    //             dose.push(maxDoseBefore14.y2)
-                    //             state.maximized = true
-                    //         }
-
-                    //     }
-                    //     else {
-                    //     state.maximized = false
-
-                    //     if (age < 2) {
-                    //         dose.push(maxDoseBefore14.y2[0])
-                    //         state.maximized = true
-                    //     }
-                    //     else {
-
-                    //         if (age >= 2 & age < 3) {
-                    //             for (let i = 0; i < perkg.length; i++){
-                    //                 w =  weight * perkg[i]
-                                    
-                    //                 if ( w > maxDoseBefore14.y2[0]){
-                    //                     state.maximized = true
-                    //                     dose.push(maxDoseBefore14.y2[0])
-                    //                 }
-                    //                 else {
-                    //                     state.maximized = false
-                    //                     let w =  weight*perkg[i]
-                    //                     if (w !== 0 | w !== null){
-                    //                         dose.push(w)
-                    //                     }
-                    //                 }
-                    //             }
-                    //         }
-                    //     }
-
-                    //     if (age >= 3 & age <= 4) {
-                    //         state.maximized = false
-                    //         for (let i = 0; i < perkg.length; i++){
-                    //             w =  weight * perkg[i]
-                                
-                    //             if ( w > maxDoseBefore14.y4[0]){
-                    //                 state.maximized = true
-                    //                 dose.push(maxDoseBefore14.y4[0])
-                    //             }
-                    //             else {
-                    //                 state.maximized = false
-                    //                 dose.push(w)
-                    //             }
-                    //         }
-
-                    //     }
-
-                    //     if (age > 4 & age <= 6) {
-                    //         state.maximized = false
-                    //         for (let i = 0; i < perkg.length; i++){
-                    //             w =  weight * perkg[i]
-                                
-                    //             if ( w > maxDoseBefore14.y6[0]){
-                    //                 state.maximized = true
-                    //                 dose.push(maxDoseBefore14.y6[0])
-                    //             }
-                    //             else {
-                    //                 state.maximized = false
-                    //                 dose.push(w)
-                    //             }
-                    //         }
-                    //     }
-
-                    //     if (age >= 7 & age < 9) {
-                    //         state.maximized = false
-                    //         for (let i = 0; i < perkg.length; i++){
-                    //             w =  weight * perkg[i]
-                                
-                    //             if ( w > maxDoseBefore14.y9[0]){
-                    //                 state.maximized = true
-                    //                 dose.push(maxDoseBefore14.y9[0])
-                    //             }
-                    //             else {
-                    //                 state.maximized = false
-                    //                 dose.push(w)
-                    //             }
-                    //         }
-                    //     }
-
-                    //     if (age >= 9 & age <= 14) {
-                    //         state.maximized = false
-                    //         for (let i = 0; i < perkg.length; i++){
-                    //             w =  weight * perkg[i]
-                                
-                    //             if ( w > maxDoseBefore14.y14[0]){
-                    //                 state.maximized = true
-                    //                 dose.push(maxDoseBefore14.y14[0])
-                    //             }
-                    //             else {
-                    //                 state.maximized = false
-                    //                 dose.push(w)
-                    //             }
-                    //         }
-                    //     }
-
-
-
-
-                    //     }
-                     //}
-
-                  //  if (index === 3 | index === 4 | index === 5 | index === 10 | index === 12 | index === 13 | index === 17 ) {
-                        // state.counts = 1
-                        // if (weight <= 6){
-                        //     for (let i = 0; i < maxbyMass.kg6.max.length; i++){
-                        //         w = weight * perkg[i]
-                               
-                        //         if ( w < maxbyMass.kg6.max[i]) {
-                        //             state.maximized = false
-                        //             dose.push(w)
-                        //         }
-                        //         else {
-                        //             state.maximized = true
-                        //             dose.push(maxbyMass.kg6.max[i])
-                        //         }
-                               
-                        //     }
-                        // } 
-    
-       
-                        // if (weight > 6 & weight <= 9) {
-                        //     for (let i = 0; i < maxbyMass.kg9.max.length; i++){
-                        //         w = weight * perkg[i]
-                            
-                        //         if ( w < maxbyMass.kg9.max[i]) {
-                        //             state.maximized = false
-                        //             dose.push(w)
-                        //         }
-                        //         else {
-                        //             state.maximized = true
-                        //             dose.push(maxbyMass.kg9.max[i])
-                        //         }
-                            
-                        //     }
-                        // }
-                        
-                        // if (weight > 9 & weight <= 15) {
-                        //     for (let i = 0; i < maxbyMass.kg15.max.length; i++){
-                        //         w = weight * perkg[i]
-                               
-                        //         if ( w < maxbyMass.kg15.max[i]) {
-                        //             state.maximized = false
-                        //             dose.push(w)
-                        //         }
-                        //         else {
-                        //             state.maximized = true
-                        //             dose.push(maxbyMass.kg15.max[i])
-                        //         }
-                               
-                        //     }
-                        // }
-
-
-                        // if (weight > 15 & weight <= 23) { 
-                        //     for (let i = 0; i < maxbyMass.kg23.max.length; i++){
-                        //         w = weight * perkg[i]
-                               
-                        //         if ( w < maxbyMass.kg23.max[i]) {
-                        //             state.maximized = false
-                        //             dose.push(w)
-                        //         }
-                        //         else {
-                        //             state.maximized = true
-                        //             dose.push(maxbyMass.kg23.max[i])
-                        //         }
-                               
-                        //     }
-                        // }
-                        // if (weight > 23 & weight <= 30) {
-                        //     for (let i = 0; i < maxbyMass.kg30.max.length; i++){
-                        //         w = weight * perkg[i]
-                               
-                        //         if ( w < maxbyMass.kg30.max[i]) {
-                        //             state.maximized = false
-                        //             dose.push(w)
-                        //         }
-                        //         else {
-                        //             state.maximized = true
-                        //             dose.push(maxbyMass.kg30.max[i])
-                        //         }
-                               
-                        //     }
-                        // }
-                        // if (weight > 30 & weight <= 34) {
-                        //     for (let i = 0; i < maxbyMass.kg34.max.length; i++){
-                        //         w = weight * perkg[i]
-                               
-                        //         if ( w < maxbyMass.kg34.max[i]) {
-                        //             state.maximized = false
-                        //             dose.push(w)
-                        //         }
-                        //         else {
-                        //             state.maximized = true
-                        //             dose.push(maxbyMass.kg34.max[i])
-                        //         }
-                               
-                        //     }
-                        // }
-                    //}
-
-                    if (index === 14) {
-                        
-                    }
-
-                    if (index === 15 ) {
-                        if ((age > 6 & age < 12 ) & (weight >= 15 & weight <= 30 )){
-                        state.counts = 'ежедневно в первые 2 недели, затем 100 мг 3 раза в неделю (с 3 недели перерыв между приемом препарата не менее 48 часов)'
-                        
-                        dose.push(200)
+                        if (dose[0] === dose[2]) {
+                            dose.splice(1, 3)
                         }
-
-                        if (age > 12 && weight > 30) {
-                            dose.push(400)
-                            state.counts = 'ежедневно в первые 2 недели, затем 200 мг 3 раза в неделю (с 3 недели перерыв между приемом препарата не менее 48 часов)'
-
-                        }
-
                     }
 
-                    
+                    state.maximized = ismaximumDose
+                    return dose
+                } else if (age > 17 && age < 18) { // moree 17
+                    dose.push('Service not available')
 
-                    if (index === 17 ) {
-                        state.counts = 'применяется только с карбапенемами! В пересчете на клавулановую кислоту с каждой дозой карбапинемов (2-3) '
+
+                    if (dose.length === 2) {
+                        dose.splice(1, 0, ' - ')
+
+                        if (dose[0] === dose[2]) {
+                            dose.splice(1, 3)
+                        }
                     }
 
-                    if (index === 18) {
-                        state.counts = 0
-                    }
-                    if (index === 19 ) {
-                        state.counts = 'применяетс я только с амоксициллин + клавуланововая кислота ' + 3 + ' '
-                    }
-
-
-
-                    
-
-                    // if (index === 19) {
-                    //     state.counts = 'применяетс я только с амоксициллин + клавуланововая кислота ' + 3
-                    // }
-
-                    if (index === 21 ) {
-                        dose.length = 0
-                        if (age < 3 ) { 
-                            dose.length = 0
-                            dose.push(0)
-                            state.counts = 2
-                        }
-
-                        if (age >=3 && age <= 5 ) {
-                            dose.splice(0, dose.length);
-                            dose.push(50)
-                            state.counts = 2
-                        }
-
-                        if (age >=6 && age <= 11 ) {
-                            dose.splice(0, dose.length);
-                            dose.push(60)
-                            state.counts = 2
-                        }
-
-                        if (age > 11 && age <= 14 ) {
-                            dose.splice(0, dose.length);
-                            dose.push(100)
-                            state.counts = 2
-                        }
-                       
-                    }
+                    state.maximized = ismaximumDose
+                    return dose
 
                 }
-                    
+
             }
-
-            return dose
-
-        }, 
+            // return dose
+        },
 
         getDrugById: (state) => {
             return (drugId) => state.drugs.find((drug) => drug.id === drugId)
-          },
-
-          originalTitle : (state) => {
-            let index = state.selectedDrugId
-            if (index !== 0 ) return state.drugs[index].original_title
-            return ''
         },
 
-        wayTakiningDrug : (state) => {
+        isComissionNeed: (state) => {
             let index = state.selectedDrugId
-            if (index !== 0 ) return state.drugs[index].way_takining_grug
-            return ''
-        },
+            let desc = 'Требуется решение врачебной комиссии.'
 
-        takiningDrugPerDay: (state) => {
-            let index = state.selectedDrugId
-            if (index !== 0 ) {
-            let count  =  state.counts//state.drugs[index].inputs_per_day
-            if (count === undefined) { count = 1 }
+            if (index !== 0) {
+                let age = state.agePerson
+                let isneed = state.drugs[index].is_comission.isneed
+                let isvk = state.drugs[index].is_comission.is_VK
 
-            let description = count > 1 ? 'раза в день' : 'раз в день'
-             return `${count} ${description}`
+                if (isneed === true) {
+                    if (age <= isvk) return ` ${desc} `
+                }
+
             }
             return ''
         },
@@ -744,38 +748,47 @@ export const useDrugStore = defineStore('drugStore', {
         isInformationNeed: (state) => {
             let index = state.selectedDrugId
             let desc = 'Необходимо наличие информированного согласия законного представителя на применение препарата'
-            
-            if (index !== 0 )
-            { 
+
+            if (index !== 0) {
                 let age = state.agePerson
                 let isneed = state.drugs[index].is_information.isneed
                 let isvk = state.drugs[index].is_information.is_VK
-               
-                if ( isneed === true) 
-                {
+
+                if (isneed === true) {
                     if (age <= isvk) return ` ${desc} `
                 }
-                    
+
             }
             return ''
         },
 
-        isComissionNeed: (state) => {
+        originalTitle: (state) => {
             let index = state.selectedDrugId
-            let desc = 'Требуется решение врачебной комиссии.'
-            
-            if (index !== 0 )
-            { 
-                let age = state.agePerson
-                let isneed = state.drugs[index].is_comission.isneed
-                let isvk = state.drugs[index].is_comission.is_VK
-               
-                if ( isneed === true) 
-                {
-                    if (age <= isvk) return ` ${desc} `
+            if (index !== 0) return state.drugs[index].original_title
+            return ''
+        },
+
+        takiningDrugPerDay: (state) => {
+            let index = state.selectedDrugId
+            if (index !== 0) {
+                let count = state.counts//state.drugs[index].inputs_per_day
+                let description = ''
+                if (count === undefined) {
+                    count = ''
                 }
-                    
+                if (typeof (count) === "string") {
+                    description = ' '
+                } else
+                    description = count > 1 ? 'раза в сутки' : 'раз в сутки'
+
+                return `${count} ${description}`
             }
+            return ''
+        },
+
+        wayTakiningDrug: (state) => {
+            let index = state.selectedDrugId
+            if (index !== 0) return state.drugs[index].way_takining_grug
             return ''
         }
     }
