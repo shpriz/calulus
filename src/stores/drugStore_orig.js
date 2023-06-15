@@ -473,7 +473,7 @@ export const useDrugStore = defineStore('drugStore', {
 
                         case 21:
                             state.counts = 2
-                            ismaximumDose = true
+                            ismaximumDose = false
                             if (age < 3) {
                                 dose.push('неприменимо до 3х лет')
                                 state.counts = ''
