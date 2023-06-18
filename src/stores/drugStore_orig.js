@@ -481,9 +481,22 @@ export const useDrugStore = defineStore('drugStore', {
                             break;
 
                         case 21:
-                            state.counts = 2
                             ismaximumDose = false
+                            if (age >= 3 && age <=5 ) {
+                                dose.push(25 * weight)
+                                state.counts = 2
 
+                            }
+                            else if (age >= 6 && age <= 11) {
+                                dose.push(50 * weight)
+                            }
+                            else if (age >=12 ) {
+                                dose.push(100 * weight)
+                            }
+                            else {
+                                dose.push('неприменимо до 3 лет')
+                                state.counts = ''
+                            }
 
                             break;
 
@@ -542,7 +555,9 @@ export const useDrugStore = defineStore('drugStore', {
 
                             } else if (age < 15 && weight <= 34) {
                                 dose = getDosearray(weight, [15, 25], drug)
-                            } else {
+                            }
+
+                            else {
                                 dose = getDosearray(weight, [15, 25], drug)
 
                             }
@@ -674,14 +689,12 @@ export const useDrugStore = defineStore('drugStore', {
                             state.counts = '2 -3 раза в день'
                             break;
                         case 21:
-
-                            ismaximumDose = false
-                            if (age >= 12) {
-                                if (weight > 35) {
-                                    ismaximumDose = true
-                                    dose.push(100)
-                                } else dose.push('недосточный вес')
+                            state.counts = 2
+                            if (age >=12 ) {
+                                dose.push(100 * weight)
                             }
+
+
                             break;
 
 
