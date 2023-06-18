@@ -1007,6 +1007,11 @@
       "before14": {
         "m3": [0],
         "m6": [0],
+        "y2": [0],
+        "y4": [0],
+        "y6": [0],
+        "y9": [0],
+        "y14": [0],
 
 
         "byMass": {
@@ -1039,12 +1044,22 @@
     "is_for_3_year_child": false,
     "is_information": {
       "isneed": true,
-      "is_VK": 300
+      "is_VK": 3
     },
     "is_comission" : {
       "isneed": false,
       "is_VK": 0
-    }
+    },
+    "age_less_14_cyt": [
+      {
+        "six_year": [125],
+        "none_year": [125],
+        "fif_year": [250],
+        "twethree_year": [375],
+        "therty_year": [500],
+        "thertyfor_year": [500]
+      }
+    ]
   },
   {
     "id": 18,
@@ -1105,7 +1120,7 @@
     "id": 19,
     "original_title": "Меропенем",
     "drugDose":{
-      "perKg": [100, 1000],
+      "perKg": [1000],
 
       "after14": {
         "max": [1000]

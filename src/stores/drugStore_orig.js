@@ -273,7 +273,7 @@ export const useDrugStore = defineStore('drugStore', {
 
                         case 3: //Пиразинамид
 
-                            if (age > 3) {
+                            if (age >= 1 || monthage <= 11) {
                                 ismaximumDose = false
                                 if (weight < 35) {
                                     dose = getDoseByMass(weight, drug)
@@ -284,12 +284,12 @@ export const useDrugStore = defineStore('drugStore', {
                             } else {
                                 dose = getDosearray(weight, [30, 40], drug)
 
-                                ismaximumDose = true
+                                // ismaximumDose = true
                             }
                             break;
 
                         case 4: // Этамбутол
-                            if (age > 13) {
+                            if (age < 14) {
 
                                 ismaximumDose = false
 
@@ -383,13 +383,14 @@ export const useDrugStore = defineStore('drugStore', {
 
                         case 12:
 
-                            if (age > 3 || weight > 25) {
+                            if (age < 14 && weight <= 35) {
                                 ismaximumDose = false
                                 if (weight < 34) {
-                                    dose = getDoseByMass2(weight, drug)
-
+                                    dose = getDoseByMass(weight, drug)
+                                    ismaximumDose = true
                                 } else if (weight >= 34) {
                                     dose = getDose(weight, drug)
+                                    ismaximumDose = true
                                 }
                             } else {
                                 dose = getDosearray(weight, [15, 20], drug)
@@ -442,8 +443,16 @@ export const useDrugStore = defineStore('drugStore', {
                             break;
 
                         case 17:
-                            dose.push('неприменимо до 14 лет')
-                            state.counts = ''
+
+                            if (weight >= 5) {
+                                state.counts = 'Применяется только с карбапенемами!  В пересчете на клавулановую кислоту с каждой дозой карбапинемов (2-3 р/д)'
+                                ismaximumDose = true
+                                dose = getDoseByMass(weight, drug)
+                            } else {
+                                dose = getDoseByMass(weight, drug)
+                                state.counts = ''
+                                ismaximumDose = true
+                            }
                             break;
 
                         case 18:
@@ -454,7 +463,8 @@ export const useDrugStore = defineStore('drugStore', {
                             break;
 
                         case 19:
-                            dose.push('неприменимо до 14 лет')
+                            state.counts = '2 - 3 раза в день. Применяется только с амоксициллиновая + клавулановая кислота.'
+                            dose = getDoseByMass(weight, drug)
                             break;
 
                         case 20:
@@ -463,8 +473,7 @@ export const useDrugStore = defineStore('drugStore', {
                             if (age > 12) {
                                 dose.push(10 * weight)
                                 state.counts = '2 -3 раза в день'
-                            }
-                            else {
+                            } else {
                                 dose.push('неприменимо до 12 лет')
                                 state.counts = ''
                             }
@@ -474,24 +483,6 @@ export const useDrugStore = defineStore('drugStore', {
                         case 21:
                             state.counts = 2
                             ismaximumDose = false
-                            if (age < 3) {
-                                dose.push('неприменимо до 3х лет')
-                                state.counts = ''
-                            } else if (age >= 3 && age <= 5) {
-                                dose.push(25)
-
-                            } else if (age > 5 && age <= 11) {
-                                if (weight >= 25 && weight <= 34) {
-                                    dose.push(50)
-                                } else {
-                                    dose.length = 0;
-                                    dose.push('недостаточный возраст')
-                                }
-
-                            } else if (age >= 12) {
-                                if (weight > 35) dose.push(100)
-                                else dose.push('недосточный вес')
-                            }
 
 
                             break;
@@ -633,14 +624,18 @@ export const useDrugStore = defineStore('drugStore', {
                             break;
 
                         case 17:
-                            state.counts = 'В пересчете на клавулановую кислоту с каждой дозой карбапинемов (2-3 р/д)'
-                            ismaximumDose = true
-                            if (age >= 14 && weight > 23)
-                                dose.push(125)
-                            else {
+                            state.counts = ''
+                            if (age >= 14 && weight > 23) {
+                                state.counts = 'В пересчете на клавулановую кислоту с каждой дозой карбапенемов (2-3 р/д)'
                                 dose = getDoseByMass(weight, drug)
-                            }
+                                ismaximumDose = true
 
+                            } else {
+                                dose = getDoseByMass(weight, drug)
+                                state.counts = 'В пересчете на клавулановую кислоту с каждой дозой карбапенемов (2-3 р/д)'
+                                ismaximumDose = true
+
+                            }
                             break;
                         case 18:
 
@@ -659,20 +654,17 @@ export const useDrugStore = defineStore('drugStore', {
                             }
 
                             break;
-                        case 19:
-                            if (age >= 14) {
-                                if (weight >= 30) {
-                                    dose.push('100 + 1000 ')
-                                    state.counts = 'каждые 8 - 12 часов'
-                                    ismaximumDose = true
-
-                                } else {
-                                    dose.push('недостаточный вес')
-                                }
+                        case 19: // Меропенем
+                            state.counts = ''
+                            ismaximumDose = false
+                            if (weight > 30) {
+                                state.counts = '2 - 3 раза в день. Применяется только с амоксициллиновая + клавулановая кислота.'
+                                dose = getDoseByMass(weight, drug)
                             } else {
-                                dose.push('неприменимо до 14 лет')
-                                state.counts = ''
+                                state.counts = '3 раза в день. Применяется только с амоксициллиновая + клавулановая кислота.'
+                                dose = getDoseByMass(weight, drug)
                             }
+
 
                             break;
 
@@ -682,13 +674,13 @@ export const useDrugStore = defineStore('drugStore', {
                             state.counts = '2 -3 раза в день'
                             break;
                         case 21:
-                            ismaximumDose=false
+
+                            ismaximumDose = false
                             if (age >= 12) {
                                 if (weight > 35) {
-                                    ismaximumDose=true
+                                    ismaximumDose = true
                                     dose.push(100)
-                                }
-                                else dose.push('недосточный вес')
+                                } else dose.push('недосточный вес')
                             }
                             break;
 
