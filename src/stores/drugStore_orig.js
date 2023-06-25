@@ -237,7 +237,7 @@ export const useDrugStore = defineStore('drugStore', {
                 // }
 
 
-                if (age < 14) { // less 14
+                if (age <= 14) { // less 14
 
                     switch (index) {
                         case 0:
@@ -294,7 +294,7 @@ export const useDrugStore = defineStore('drugStore', {
                                 ismaximumDose = false
 
                                 if (weight < 35) {
-                                    dose = getDoseByMass(weight, drug)
+                                    dose.push(800)
 
                                 } else if (weight >= 35) {
                                     dose = getDose(weight, drug)
@@ -311,13 +311,13 @@ export const useDrugStore = defineStore('drugStore', {
 
                             ismaximumDose = false
 
-                            if (age <= 2 || (age < 1 && monthage <= 11)) {
+                            if (age <= 2 || (age <= 1 && monthage <= 11)) {
                                 ismaximumDose = true
                                 if (monthage < 3) dose.push(weight * 10)
                                 else if (monthage >= 3 && monthage < 6) dose.push(weight * 10)
                                 else if (monthage >= 6 && age <= 2) {
 
-                                    dose.push(weight * 20)
+                                    dose = getDosearray(weight, [15, 20], drug)
 
                                 }
 
@@ -327,31 +327,31 @@ export const useDrugStore = defineStore('drugStore', {
 
                                 if (age >= 3 && age <= 4) {
                                     ismaximumDose = false;
-                                    if (w < 300) {
-                                        dose.push(w);
+                                    if (w <= 300) {
+                                        dose.push(300);
                                     } else {
                                         dose.push(300);
                                         ismaximumDose = true;
                                     }
                                 } else if (age >= 5 && age <= 6) {
                                     ismaximumDose = false;
-                                    if (w < 350) {
-                                        dose.push(w);
+                                    if (w <= 350) {
+                                        dose.push(350);
                                     } else {
                                         dose.push(350);
                                         ismaximumDose = true;
                                     }
                                 } else if (age >= 7 && age < 9) {
                                     ismaximumDose = false;
-                                    if (w < 400) {
-                                        dose.push(w);
+                                    if (w <= 400) {
+                                        dose.push(400);
                                     } else {
                                         dose.push(400);
                                         ismaximumDose = true;
                                     }
                                 } else if (age >= 9 && age <= 14) {
-                                    if (w < 500) {
-                                        dose.push(w);
+                                    if (w <= 500) {
+                                        dose.push(500);
                                     } else {
                                         dose.push(500);
                                         ismaximumDose = true;
@@ -383,7 +383,7 @@ export const useDrugStore = defineStore('drugStore', {
 
                         case 12:
 
-                            if (age < 14 && weight <= 35) {
+                            if (age <= 14 && weight <= 35) {
                                 ismaximumDose = false
                                 if (weight < 34) {
                                     dose = getDoseByMass(weight, drug)
@@ -405,7 +405,7 @@ export const useDrugStore = defineStore('drugStore', {
                         case 13:
 
                             ismaximumDose = false
-                            if (weight < 35) {
+                            if (weight <= 35) {
                                 dose = getDoseByMass(weight, drug)
                                 ismaximumDose = true
 
@@ -416,7 +416,8 @@ export const useDrugStore = defineStore('drugStore', {
                             break;
 
                         case 14:
-                            if (age < 1 && monthage <= 11) {
+
+                            if (age <= 6 || (monthage <= 11)) {
                                 dose = getDosearray(weight, [200, 300], drug)
                             } else {
                                 dose = getDosearray(weight, [200], drug)
@@ -425,7 +426,7 @@ export const useDrugStore = defineStore('drugStore', {
 
                         case 15:
                             if (age < 6) dose.push('неприменимо до 6 лет')
-                            else if (age >= 6 && age < 12) {
+                            else if (age >= 6 && age <= 12) {
                                 if (weight >= 15 && weight <= 30) {
                                     state.counts = 'ежедневно в первые 2 недели, затем 100 мг 3 раза в неделю (с 3 недели перерыв между приемом препарата не менее 48 часов)'
                                     dose.push(200)
@@ -441,6 +442,9 @@ export const useDrugStore = defineStore('drugStore', {
                                 dose.push(400)
                             }
                             break;
+
+
+
 
                         case 17:
 
@@ -470,9 +474,9 @@ export const useDrugStore = defineStore('drugStore', {
                         case 20:
 
                             ismaximumDose = false
-                            if (age > 12) {
-                                dose.push(10 * weight)
-                                state.counts = '2 -3 раза в день'
+                            if (age >= 12) {
+                                dose.push(25 * weight)
+                                state.counts = '2 -3 раза в неделю'
                             } else {
                                 dose.push('неприменимо до 12 лет')
                                 state.counts = ''
@@ -483,7 +487,7 @@ export const useDrugStore = defineStore('drugStore', {
                         case 21:
                             ismaximumDose = false
                             if (age >= 3 && age <=5 ) {
-                                dose.push(25 * weight)
+                                dose.push(25)
                                 state.counts = 2
 
                             }
@@ -535,7 +539,7 @@ export const useDrugStore = defineStore('drugStore', {
 
                         case 3:
 
-                            if (age > 14 && weight >= 34) {
+                            if (age >= 14 && weight >= 34) {
                                 dose = getDosearray(weight, [20, 30], drug)
                                 // dose.push(weight * 30)
 
@@ -549,11 +553,11 @@ export const useDrugStore = defineStore('drugStore', {
 
                             break;
                         case 4:
-                            if (age > 14 && weight >= 34) {
-                                dose = getDosearray(weight, [10, 20], drug)
+                            if (age >= 14 && weight >= 34) {
+                                dose = getDosearray(weight, [15, 25], drug)
                                 // dose.push(weight * 30)
 
-                            } else if (age < 15 && weight <= 34) {
+                            } else if (age <= 15 && weight <= 34) {
                                 dose = getDosearray(weight, [15, 25], drug)
                             }
 
@@ -566,9 +570,13 @@ export const useDrugStore = defineStore('drugStore', {
 
 
                         case 5:
-                            dose = getDose(weight, drug)
+
+                            dose.push(1000);
+                            ismaximumDose = false;
+
 
                             break;
+
 
 
                         case 6:
@@ -597,7 +605,7 @@ export const useDrugStore = defineStore('drugStore', {
                         case 12: // Циклосерин
 
                             if (weight >= 34) dose = getDose(weight, drug)
-                            else if (age < 15 && weight <= 34) {
+                            else if (age <= 15 && weight <= 34) {
                                 dose = getDosearray(weight, [15, 20], drug)
                             } else {
                                 dose = getDosearray(weight, [15, 20], drug)
@@ -640,7 +648,7 @@ export const useDrugStore = defineStore('drugStore', {
 
                         case 17:
                             state.counts = ''
-                            if (age >= 14 && weight > 23) {
+                            if (age >= 14 && weight >= 23) {
                                 state.counts = 'В пересчете на клавулановую кислоту с каждой дозой карбапенемов (2-3 р/д)'
                                 dose = getDoseByMass(weight, drug)
                                 ismaximumDose = true
@@ -672,7 +680,7 @@ export const useDrugStore = defineStore('drugStore', {
                         case 19: // Меропенем
                             state.counts = ''
                             ismaximumDose = false
-                            if (weight > 30) {
+                            if (weight >= 30) {
                                 state.counts = '2 - 3 раза в день. Применяется только с амоксициллиновая + клавулановая кислота.'
                                 dose = getDoseByMass(weight, drug)
                             } else {
@@ -690,7 +698,7 @@ export const useDrugStore = defineStore('drugStore', {
                             break;
                         case 21:
                             state.counts = 2
-                            if (age >=12 ) {
+                            if (age >= 12 ) {
                                 dose.push(100 * weight)
                             }
 
@@ -711,7 +719,7 @@ export const useDrugStore = defineStore('drugStore', {
 
                     state.maximized = ismaximumDose
                     return dose
-                } else if (age > 17 && age < 18) { // moree 17
+                } else if (age >= 18 ) { // moree 17
                     dose.push('Service not available')
 
 

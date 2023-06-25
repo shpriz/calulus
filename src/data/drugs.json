@@ -321,7 +321,7 @@
     "id": 6,
     "original_title": "Канамицин",
     "drugDose":{
-      "perKg": [15, 20],
+      "perKg": [15],
 
       "after14": {
         "max": [750]
@@ -421,8 +421,8 @@
     "inputs_per_day": 1,
     "is_for_3_year_child": false,
     "is_information": {
-      "isneed": false,
-      "is_VK": 0
+      "isneed": true,
+      "is_VK": 14
     },
     "is_comission" : {
       "isneed": true,
@@ -478,8 +478,8 @@
     "inputs_per_day": 1,
     "is_for_3_year_child": false,
     "is_information": {
-      "isneed": false,
-      "is_VK": 0
+      "isneed": true,
+      "is_VK": 18
     },
     "is_comission" : {
       "isneed": true,
@@ -538,8 +538,8 @@
     "inputs_per_day": 1,
     "is_for_3_year_child": false,
     "is_information": {
-      "isneed": false,
-      "is_VK": 0
+      "isneed": true,
+      "is_VK": 18
     },
     "is_comission" : {
       "isneed": true,
@@ -944,7 +944,7 @@
     "unique16": true,
     "original_title": "Линезолид",
     "drugDose":{
-      "perKg": [10,  15],
+      "perKg": [10, 12, 15],
 
       "after14": {
         "max": [600]
@@ -1112,8 +1112,8 @@
       "is_VK": 300
     },
     "is_comission" : {
-      "isneed": false,
-      "is_VK": 0
+      "isneed": true,
+      "is_VK": 1000
     }
   },
   {
@@ -1155,17 +1155,17 @@
       }
     },
     "way_takining_grug": [
-      "перорально"
+      "внутривенно"
     ],
     "inputs_per_day": 3,
     "is_for_3_year_child": false,
     "is_information": {
-      "isneed": false,
-      "is_VK": 0
+      "isneed": true,
+      "is_VK": 1000
     },
     "is_comission" : {
       "isneed": true,
-      "is_VK": 300
+      "is_VK": 1000
     }
   },
   {
