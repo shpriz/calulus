@@ -245,7 +245,7 @@
     "is_for_3_year_child": false,
     "is_information": {
       "isneed": true,
-      "is_VK": 13
+      "is_VK": 12
     },
     "is_comission" : {
       "isneed": false,
@@ -944,7 +944,7 @@
     "unique16": true,
     "original_title": "Линезолид",
     "drugDose":{
-      "perKg": [10, 12, 15],
+      "perKg": [10],
 
       "after14": {
         "max": [600]
