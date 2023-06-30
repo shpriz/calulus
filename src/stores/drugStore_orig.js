@@ -506,10 +506,12 @@ export const useDrugStore = defineStore('drugStore', {
 
                             }
                             else if (age >= 6 && age <= 11) {
-                                dose.push(50 * weight)
+                                // dose.push(50 * weight)
+                                dose = getDosearray(weight, [50], drug)
                             }
                             else if (age >=12 ) {
-                                dose.push(100 * weight)
+                                // dose.push(100 * weight)
+                                dose = getDosearray(weight, [100], drug)
                             }
                             else {
                                 dose.push('неприменимо до 3 лет')
