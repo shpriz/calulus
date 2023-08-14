@@ -179,7 +179,7 @@
     "is_for_3_year_child": true,
     "is_information": {
       "isneed": true,
-      "is_VK": 3
+      "is_VK": 2
     },
     "is_comission" : {
       "isneed": false,
@@ -422,7 +422,7 @@
     "is_for_3_year_child": false,
     "is_information": {
       "isneed": true,
-      "is_VK": 14
+      "is_VK": 18
     },
     "is_comission" : {
       "isneed": true,
@@ -479,7 +479,7 @@
     "is_for_3_year_child": false,
     "is_information": {
       "isneed": true,
-      "is_VK": 18
+      "is_VK": 180
     },
     "is_comission" : {
       "isneed": true,
@@ -595,7 +595,7 @@
     "is_for_3_year_child": false,
     "is_information": {
       "isneed": true,
-      "is_VK": 3
+      "is_VK": 2
     },
     "is_comission" : {
       "isneed": true,
@@ -782,7 +782,7 @@
     "is_for_3_year_child": false,
     "is_information": {
       "isneed": true,
-      "is_VK": 14
+      "is_VK": 13
     },
     "is_comission" : {
       "isneed": false,

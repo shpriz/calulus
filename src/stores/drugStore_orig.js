@@ -49,73 +49,6 @@ function getDosearray(weight, massiv, drug) {
     return doem
 }
 
-function getDoseByMass2(weight, drug) {
-
-    let doses = []
-    let w = 0
-
-    for (let i = 0; i < drug['drugDose']['perKg'].length; i++) {
-
-        w = weight * drug['drugDose']['perKg'][i]
-
-        if (weight < 5) doses.push("вес ребенка менее 5 кг")
-
-        else if (weight >= 5 && weight <= 6) {
-            if (w < drug['drugDose']['before14']['byMass']["0"]["max"]) {
-                doses.push(w)
-                ismaximumDose = false
-            } else {
-                doses = drug['drugDose']['before14']['byMass']["0"]["max"]
-                ismaximumDose = true
-            }
-        } else if (weight >= 7 && weight <= 9) {
-            if (w < drug['drugDose']['before14']['byMass']["1"]["max"]) {
-                doses.push(w)
-                ismaximumDose = false
-            } else {
-                doses = drug['drugDose']['before14']['byMass']["1"]["max"]
-                ismaximumDose = true
-            }
-        } else if (weight >= 10 && weight <= 15) {
-            if (w < drug['drugDose']['before14']['byMass']["2"]["max"]) {
-                doses.push(w)
-                ismaximumDose = false
-            } else {
-                doses = drug['drugDose']['before14']['byMass']["2"]["max"]
-                ismaximumDose = true
-            }
-        } else if (weight >= 16 && weight <= 23) {
-            if (w < drug['drugDose']['before14']['byMass']["3"]["max"]) {
-                doses.push(w)
-                ismaximumDose = false
-            } else {
-                doses = drug['drugDose']['before14']['byMass']["3"]["max"]
-                ismaximumDose = true
-            }
-        } else if (weight >= 24 && weight <= 30) {
-            if (w < drug['drugDose']['before14']['byMass']["4"]["max"]) {
-                doses.push(w)
-                ismaximumDose = false
-            } else {
-                doses = drug['drugDose']['before14']['byMass']["4"]["max"]
-                ismaximumDose = true
-            }
-        } else if (weight >= 31 && weight <= 34) {
-            if (w < drug['drugDose']['before14']['byMass']["5"]["max"]) {
-                doses.push(w)
-                ismaximumDose = false
-            } else {
-                doses = drug['drugDose']['before14']['byMass']["5"]["max"]
-                ismaximumDose = true
-            }
-        } else {
-            doses = drug['drugDose']['perKg']
-        }
-    }
-    return doses
-}
-
-
 function getDoseByMass(weight, drug) {
 
     let doses = []
@@ -406,7 +339,7 @@ export const useDrugStore = defineStore('drugStore', {
                             ismaximumDose = false
                                 if (weight <= 60) {
                                     state.counts = '2 раза в день'
-                                    dose.push(300)
+                                    dose.push(125)
 
                                     ismaximumDose = true
 
@@ -438,11 +371,11 @@ export const useDrugStore = defineStore('drugStore', {
                                     dose.push('недостаточный вес')
                                     state.counts = ''
                                 } else {
-                                    state.counts = 'ежедневно в первые 2 недели, затем 100 мг 3 раза в неделю(с 3 недели перерыв между приемом препарата не менее 48 часов)'
+                                    state.counts = 'ежедневно в первые 2 недели, затем 200 мг 3 раза в неделю(с 3 недели перерыв между приемом препарата не менее 48 часов)'
                                     dose.push(400)
                                 }
                             } else {
-                                state.counts = 'ежедневно в первые 2 недели, затем 100 мг 3 раза в неделю(с 3 недели перерыв между приемом препарата не менее 48 часов)'
+                                state.counts = 'ежедневно в первые 2 недели, затем 200 мг 3 раза в неделю(с 3 недели перерыв между приемом препарата не менее 48 часов)'
                                 dose.push(400)
                             }
                             break;
@@ -481,7 +414,7 @@ export const useDrugStore = defineStore('drugStore', {
                             break;
 
                         case 19:
-                            state.counts = '2 - 3 раза в день. Применяется только с амоксициллиновая + клавулановая кислота.'
+                            state.counts = '3 раза в день. Применяется только с амоксициллиновая + клавулановая кислота.'
                             dose = getDoseByMass(weight, drug)
                             break;
 
@@ -489,7 +422,7 @@ export const useDrugStore = defineStore('drugStore', {
 
                             ismaximumDose = false
                             if (age >= 12) {
-                                dose.push(25 * weight)
+                                dose.push(10 * weight)
                                 state.counts = '2 -3 раза в неделю'
                             } else {
                                 dose.push('неприменимо до 12 лет')
@@ -500,18 +433,20 @@ export const useDrugStore = defineStore('drugStore', {
 
                         case 21:
                             ismaximumDose = false
+                            state.counts = 2
+
                             if (age >= 3 && age <=5 ) {
                                 dose.push(25)
-                                state.counts = 2
+
 
                             }
                             else if (age >= 6 && age <= 11) {
-                                // dose.push(50 * weight)
-                                dose = getDosearray(weight, [50], drug)
+                                dose.push(50)
+                                // dose = getDosearray(weight, [50], drug)
                             }
                             else if (age >=12 ) {
-                                // dose.push(100 * weight)
-                                dose = getDosearray(weight, [100], drug)
+                                dose.push(100)
+                                // dose = getDosearray(weight, [100], drug)
                             }
                             else {
                                 dose.push('неприменимо до 3 лет')
@@ -645,6 +580,7 @@ export const useDrugStore = defineStore('drugStore', {
                             dose.push(10000)
                             dose.push(15000)
                             ismaximumDose = true
+                            state.counts = '1 раз в сутки'
 
                             break;
                         case 15:
@@ -655,7 +591,7 @@ export const useDrugStore = defineStore('drugStore', {
                                 dose.push('недостаточный вес')
                                 state.counts = ''
                             } else {
-                                state.counts = 'ежедневно в первые 2 недели, затем 100 мг 3 раза в неделю(с 3 недели перерыв между приемом препарата не менее 48 часов)'
+                                state.counts = 'ежедневно в первые 2 недели, затем 200 мг 3 раза в неделю (с 3 недели перерыв между приемом препарата не менее 48 часов)'
                                 dose.push(400)
                             }
 
@@ -712,10 +648,12 @@ export const useDrugStore = defineStore('drugStore', {
                             dose.push(10 * weight)
                             state.counts = '2 -3 раза в день'
                             break;
+
+
                         case 21:
                             state.counts = 2
                             if (age >= 12 ) {
-                                dose.push(100 * weight)
+                                dose.push(100)
                             }
 
 
