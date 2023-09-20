@@ -734,7 +734,7 @@
     "id": 13,
     "original_title": "Теризидон",
     "drugDose":{
-      "perKg": [300],
+      "perKg": [15, 20],
 
       "after14": {
         "max": [750],
@@ -852,7 +852,7 @@
       }
     },
     "way_takining_grug": [
-      "внутривенно"
+      "внутривенно", "перорально"
     ],
     "inputs_per_day": 1,
     "is_for_3_year_child": false,
@@ -1044,7 +1044,7 @@
     "is_for_3_year_child": false,
     "is_information": {
       "isneed": true,
-      "is_VK": 3
+      "is_VK": 19
     },
     "is_comission" : {
       "isneed": false,
@@ -1267,8 +1267,8 @@
     "inputs_per_day": 1,
     "is_for_3_year_child": false,
     "is_information": {
-      "isneed": false,
-      "is_VK": 0
+      "isneed": true,
+      "is_VK": 18
     },
     "is_comission" : {
       "isneed": false,
