@@ -1,6 +1,6 @@
 {
   "name": "calculus2",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": true,
   "scripts": {
     "dev": "vite",
@@ -11,15 +11,26 @@
   "dependencies": {
     "bootstrap": "^5.2.3",
     "bulma": "^0.9.4",
-    "node-sass": "^8.0.0",
+    "node-sass": "^9.0.0",
     "pinia": "^2.0.32",
-    "sass": "^1.58.3",
-    "sass-loader": "^13.2.0",
+    "sass-loader": "^14.0.0",
     "vue": "^3.2.47"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
     "vite": "^4.1.4",
     "vue3-select2-component": "^0.1.7"
-  }
+  },
+  "description": "This template should help get you started developing with Vue 3 in Vite.",
+  "main": "vite.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/shpriz/calulus.git"
+  },
+  "author": "Karyakin Alex",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shpriz/calulus/issues"
+  },
+  "homepage": "https://github.com/shpriz/calulus#readme"
 }
