@@ -66,22 +66,6 @@ function getDoseByMass(weight, drug) {
     return doses
 }
 
-
-function getDoseByMassfrom35to60(weight) {
-    let dose = []
-
-
-    return dose;
-}
-
-function getDoseByMassmore60(weight) {
-    let dose = []
-
-
-    return dose;
-}
-
-
 export const useDrugStore = defineStore('drugStore', {
     state: () => {
         return {
@@ -367,7 +351,10 @@ export const useDrugStore = defineStore('drugStore', {
                             break;
 
                         case 15:
-                            if (age < 6) dose.push('неприменимо до 6 лет')
+                            if (age < 6) {
+                              dose.push('неприменимо до 6 лет')
+                              state.counts = ''
+                            }
                             else if (age >= 6 && age <= 12) {
                                 if (weight >= 15 && weight <= 30) {
                                     state.counts = 'ежедневно в первые 2 недели, затем 100 мг 3 раза в неделю (с 3 недели перерыв между приемом препарата не менее 48 часов)'
@@ -431,16 +418,25 @@ export const useDrugStore = defineStore('drugStore', {
                             break;
 
                         case 19:
-                            state.counts = '3 раза в день. Применяется только с амоксициллиновая + клавулановая кислота.'
-                            dose = getDoseByMass(weight, drug)
-                            break;
+                                state.counts = ''
+                                ismaximumDose = false
+                                if (weight >= 30) {
+                                    state.counts = '2 - 3 раза в день. Применяется только с амоксициллиновая + клавулановая кислота.'
+                                    dose = getDosearray(weight, [1000], drug)
+                                } else {
+                                    state.counts = '3 раза в день. Применяется только с амоксициллиновая + клавулановая кислота.'
+                                    dose = getDoseByMass(weight, drug)
+                                }
+
+
+                                break;
 
                         case 20:
 
                             ismaximumDose = false
                             if (age >= 12) {
                                 dose.push(10 * weight)
-                                state.counts = '2 -3 раза в неделю'
+                                state.counts = '2 - 3 раза в неделю'
                             } else {
                                 dose.push('неприменимо до 12 лет')
                                 state.counts = ''
@@ -600,7 +596,8 @@ export const useDrugStore = defineStore('drugStore', {
                             state.counts = '1 раз в сутки'
 
                             break;
-                        case 15:
+                        case 15: // бедаквилин
+                            state.counts = ''
                             if (weight >= 15 && weight <= 30) {
                                 state.counts = 'ежедневно в первые 2 недели, затем 100 мг 3 раза в неделю (с 3 недели перерыв между приемом препарата не менее 48 часов)'
                                 dose.push(200)
@@ -639,23 +636,19 @@ export const useDrugStore = defineStore('drugStore', {
 
                                 } else {
                                     dose.push('недостаточный вес')
+                                    state.counts = ''
+                                    ismaximumDose = false
+
                                 }
                             }
 
                             break;
                         case 19: // Меропенем
-                            state.counts = ''
-                            ismaximumDose = false
-                            if (weight >= 30) {
-                                state.counts = '2 - 3 раза в день. Применяется только с амоксициллиновая + клавулановая кислота.'
-                                dose = getDoseByMass(weight, drug)
-                            } else {
-                                state.counts = '3 раза в день. Применяется только с амоксициллиновая + клавулановая кислота.'
-                                dose = getDoseByMass(weight, drug)
-                            }
 
+                             state.counts = '3 раза в день. Применяется только с амоксициллиновая + клавулановая кислота.'
+                             dose = getDoseByMass(weight, drug)
+                           break;
 
-                            break;
 
                         case 20:
                             ismaximumDose = false
